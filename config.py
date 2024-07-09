@@ -3,8 +3,9 @@ from PIL import Image
 
 # Dirs
 current_dir = Path(__file__).parent
+css_dir = current_dir / 'styles' / 'main.css'
 profile_image = current_dir / 'static' / 'profile.jpg'
-resume_file = current_dir / 'static' / 'resume.pdf'
+resume_file = current_dir / 'static' / 'Artem Merkulov CV.pdf'
 
 
 # General
@@ -21,7 +22,8 @@ SOCIAL_MEDIA = {
     'HabrCareer': 'https://career.habr.com/artyommerkulov',
 }
 
-# Load static
+# Load resume
 with open(resume_file, 'rb') as resume:
     resume = resume.read()
+
 profile_pic = Image.open(profile_image)

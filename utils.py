@@ -1,5 +1,7 @@
 import streamlit as st
 
+from config import SOCIAL_MEDIA
+
 
 def get_hard_skills():
     st.subheader("Hard Skills")
@@ -44,12 +46,12 @@ def get_work_history():
         **Location:** Krasnodar  
         **Role:** Python Backend Developer  
         **Responsibilities:**
-        - ► Improved backend of an online store using FastApi and DRF + Redis.
-        - ► Implemented SMS and PyJWT-based authorization and authentication.
-        - ► Configured full-text search using Sphinx.
-        - ► Developed APIs for routine tasks.
-        - ► Wrote raw SQL queries and worked with Django ORM.
-        - ► Supported and optimized local development.
+        - ► Improved backend of an online store using FastApi and DRF + Redis;
+        - ► Implemented SMS and PyJWT-based authorization and authentication;
+        - ► Configured full-text search using Sphinx;
+        - ► Developed APIs for routine tasks;
+        - ► Wrote raw SQL queries and worked with Django ORM;
+        - ► Supported and optimized local development;
         - ► Conducted code reviews and refactoring.
     """
     )
@@ -61,17 +63,17 @@ def get_work_history():
         **Location:** Chelyabinsk  
         **Role:** Backend Python Developer  
         **Responsibilities:**
-        - ► Developed backend platform on FastApi for business process automation at Gloria Jeans.
-        - ► Implemented and supported sections for store planning.
-        - ► Developed APIs for routine tasks.
-        - ► Developed calculation methods using Pandas and Numpy.
-        - ► Wrote GraphQL queries.
-        - ► Wrote tests using pytest and pytest_mock.
-        - ► Supported and optimized local development.
-        - ► Developed backend platform on DRF + Celery + Redis for Lenta.
-        - ► Handled data import and export using openpyxl.
-        - ► Covered code with tests using pytest and factory_boy.
-        - ► Conducted code reviews and refactoring.
+        - ► Developed backend platform on FastApi for business process automation at Gloria Jeans;
+        - ► Implemented and supported sections for store planning;
+        - ► Developed APIs for routine tasks;
+        - ► Developed calculation methods using Pandas and Numpy;
+        - ► Wrote GraphQL queries;
+        - ► Wrote tests using pytest and pytest_mock;
+        - ► Supported and optimized local development;
+        - ► Developed backend platform on DRF + Celery + Redis for Lenta;
+        - ► Handled data import and export using openpyxl;
+        - ► Covered code with tests using pytest and factory_boy;
+        - ► Conducted code reviews and refactoring;
         - ► Developed a parser for md and yml templates using re, argparse, yaml, BeautifulSoup4.
     """
     )
@@ -84,9 +86,15 @@ def get_work_history():
         **Location:** Moscow  
         **Role:** Programmer  
         **Responsibilities:**
-        - ► Developed REST API using Django and DRF.
-        - ► Covered code with tests using python unittest.
-        - ► Created packages using setuptools.
+        - ► Developed REST API using Django and DRF;
+        - ► Covered code with tests using python unittest;
+        - ► Created packages using setuptools;
         - ► Conducted code reviews and refactoring.
     """
     )
+
+
+def get_contacts_info():
+    for platform, link in SOCIAL_MEDIA.items():
+        st.write('\n')
+        st.write(f"[{platform}]({link})")
