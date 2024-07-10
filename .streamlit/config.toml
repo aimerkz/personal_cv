@@ -11,7 +11,7 @@ serverPort = 8501
 [server]
 address = "127.0.0.1"
 port = 8501
-baseUrlPath = "amerkulovcv"
+runOnSave = true
 
 [logger]
 level = "INFO"

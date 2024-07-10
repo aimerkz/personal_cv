@@ -15,11 +15,19 @@ NAME = 'Artem Merkulov'
 DESCRIPTION = 'Python Backend Developer'
 AGE = 28
 EMAIL = 'artem-merk96@yandex.ru'
+
 SOCIAL_MEDIA = {
     'Telegram': 'https://t.me/aimerkulov96',
     'GitHub': 'https://github.com/aimerkz',
     'LinkedIn': 'https://www.linkedin.com/in/artem-merkulov-0133b328b/',
     'HabrCareer': 'https://career.habr.com/artyommerkulov',
+}
+
+SOCIAL_MEDIA_ICONS = {
+    'Telegram': '📲',
+    'LinkedIn': '💼',
+    'GitHub': '💻',
+    'HabrCareer': '💺',
 }
 
 # Load resume

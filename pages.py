@@ -1,5 +1,8 @@
+# import asyncio
+
 import streamlit as st
 
+# from bot import send_message
 from config import *
 from utils import get_hard_skills, get_cv_info, get_work_history, get_contacts_info
 
@@ -28,12 +31,15 @@ def get_work_history_page():
 def get_contacts_page():
     st.title('Contacts')
     get_contacts_info()
+    st.write('\n')
+    st.subheader('You can write to me in telegram:')
+    st.text_input('Type your message and press Enter')
 
 
 def get_pages():
     page = st.navigation(
         pages=[
-            st.Page(get_about_page, title='About me'),
+            st.Page(get_about_page, title='About me', url_path='about/'),
             st.Page(get_work_history_page, title='Work History', url_path='work_history/'),
             st.Page(get_contacts_page, title='Contacts', url_path='contacts/'),
         ],

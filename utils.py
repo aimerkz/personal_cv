@@ -1,6 +1,6 @@
 import streamlit as st
 
-from config import SOCIAL_MEDIA
+from config import SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS
 
 
 def get_hard_skills():
@@ -92,6 +92,11 @@ def get_work_history():
 
 
 def get_contacts_info():
-    for platform, link in SOCIAL_MEDIA.items():
-        st.write('\n')
-        st.write(f"[{platform}]({link})")
+    cols = st.columns(2, gap='medium')
+    for idx, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
+        col = cols[idx % 2]
+        icon = SOCIAL_MEDIA_ICONS[platform]
+        col.markdown(
+            f"[{platform} {icon}]({link})",
+            unsafe_allow_html=True,
+        )
