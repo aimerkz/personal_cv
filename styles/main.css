@@ -1,8 +1,7 @@
 * {
     font-family: 'Helvetica', sans-serif;
-    color: white;
+    color: #f0f8ff;
 }
-
 
 a {
     text-decoration: none;
@@ -22,6 +21,14 @@ hr {
     margin-bottom: 5%;
 }
 
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
