@@ -28,7 +28,7 @@ navigation = st.sidebar.radio(
 
 match navigation:
     case SectionEnum.ABOUT.value:
-        st.image(profile_pic)
+        st.image(profile_pic, width=350)
         st.title(NAME)
         st.write(DESCRIPTION)
         st.write(f'{AGE} years old')
