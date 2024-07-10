@@ -21,12 +21,12 @@ def get_about_page():
 
 
 def get_work_history_page():
-    st.title("Work History")
+    st.title('Work History')
     get_work_history()
 
 
 def get_contacts_page():
-    st.title("Contacts")
+    st.title('Contacts')
     get_contacts_info()
 
 

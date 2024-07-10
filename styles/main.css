@@ -32,3 +32,13 @@ footer {
 header {
     visibility: hidden;
 }
+
+[data-testid="stSidebarNav"]::before {
+    content: 'Navigation';
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 30px;
+    position: unset;
+    top: 100px;
+    color: beige;
+}
