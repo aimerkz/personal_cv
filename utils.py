@@ -43,7 +43,6 @@ def get_work_history():
     st.write('05/2024 - Present')
     st.write(
         """
-        **Location:** Krasnodar  
         **Role:** Python Backend Developer  
         **Responsibilities:**
         - ► Improved backend of an online store using FastApi and DRF + Redis;
@@ -60,7 +59,6 @@ def get_work_history():
     st.write('06/2023 - 07/2024')
     st.write(
         """
-        **Location:** Chelyabinsk  
         **Role:** Backend Python Developer  
         **Responsibilities:**
         - ► Developed backend platform on FastApi for business process automation at Gloria Jeans;
@@ -83,7 +81,6 @@ def get_work_history():
     st.write('04/2022 - 06/2023')
     st.write(
         """
-        **Location:** Moscow  
         **Role:** Programmer  
         **Responsibilities:**
         - ► Developed REST API using Django and DRF;
