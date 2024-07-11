@@ -1,6 +1,10 @@
-import streamlit as st
+from io import BytesIO
 
-from config import SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS
+import streamlit as st
+import qrcode
+from PIL import Image
+
+from config import SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK
 
 
 def get_hard_skills():
@@ -91,12 +95,40 @@ def get_work_history():
     )
 
 
+def get_qr_code():
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=6,
+        border=4,
+    )
+
+    qr.add_data(TELEGRAM_LINK)
+    qr.make(fit=True)
+
+    img = qr.make_image(fill_color='black', back_color='white')
+
+    buf = BytesIO()
+    img.save(buf)
+    buf.seek(0)
+    img = Image.open(buf)
+
+    st.image(img, width=300, caption='Scan the code')
+
+
 def get_contacts_info():
-    cols = st.columns(2, gap='medium')
-    for idx, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-        col = cols[idx % 2]
-        icon = SOCIAL_MEDIA_ICONS[platform]
-        col.markdown(
-            f"[{platform} {icon}]({link})",
-            unsafe_allow_html=True,
-        )
+    col = st.columns(1)[0]
+    links = " | ".join(
+        f"[{platform} {SOCIAL_MEDIA_ICONS[platform]}]({link})"
+        for platform, link in SOCIAL_MEDIA.items()
+    )
+    col.markdown(links, unsafe_allow_html=True)
+
+    if 'show_content' not in st.session_state:
+        st.session_state.show_content = False
+
+    if st.button('Get Telegram QR Code'):
+        st.session_state.show_content = not st.session_state.show_content
+
+    if st.session_state.show_content:
+        get_qr_code()

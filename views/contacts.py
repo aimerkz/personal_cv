@@ -13,7 +13,8 @@ def show_contact_form():
 st.title('Contacts')
 get_contacts_info()
 st.write('\n')
-st.subheader('You can write to my bot in Telegram:')
+
+st.subheader('Also you can write to my bot in Telegram:')
 
 if st.button('Send'):
     show_contact_form()
