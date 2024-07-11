@@ -8,7 +8,7 @@ profile_image = current_dir / 'static' / 'profile.jpg'
 resume_file = current_dir / 'static' / 'Artem Merkulov CV.pdf'
 
 
-# General
+# General info
 PAGE_TITLE = 'CV Artem Merkulov'
 PAGE_ICON = ':coffee:'
 NAME = 'Artem Merkulov'

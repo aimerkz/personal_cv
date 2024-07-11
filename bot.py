@@ -2,13 +2,10 @@ import streamlit as st
 
 from aiogram import Bot
 from aiogram.exceptions import TelegramAPIError
-from envparse import env
 
 
-env.read_envfile()
-
-TELEGRAM_TOKEN = env.str('TELEGRAM_TOKEN')
-CHAT_ID = env.str('CHAT_ID')
+TELEGRAM_TOKEN = st.secrets['TELEGRAM_TOKEN']
+CHAT_ID = st.secrets['CHAT_ID']
 
 bot = Bot(token=TELEGRAM_TOKEN)
 

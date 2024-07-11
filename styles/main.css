@@ -1,6 +1,11 @@
-* {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Helvetica', sans-serif;
-    color: #f0f8ff;
+    color: beige;
+}
+
+p {
+    font-family: 'Helvetica', sans-serif;
+    color: white;
 }
 
 a {
@@ -16,32 +21,6 @@ a:hover {
 
 ul {list-style-type: none;}
 
-hr {
-    margin-top: 0px;
-    margin-bottom: 5%;
-}
-
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-
 header {
-    visibility: hidden;
-}
-
-[data-testid='stSidebarNav']::before {
-    content: 'Navigation';
-    margin-left: 30px;
-    margin-top: 10px;
-    font-size: 30px;
-    position: unset;
-    top: 100px;
-}
-
-[data-testid='stSidebarNav']:hover::before {
-    color: yellow;
+    visibility: visible;
 }

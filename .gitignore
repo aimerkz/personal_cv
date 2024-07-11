@@ -4,6 +4,7 @@ venv/
 .env
 env/
 vscode/
+.streamlit/secrets.toml
 
 .Python
 build/
