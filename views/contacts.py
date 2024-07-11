@@ -1,4 +1,3 @@
-import asyncio
 import streamlit as st
 
 from bot import send_message
@@ -18,3 +17,7 @@ st.subheader('You can write to my bot in telegram:')
 
 if st.button('Send'):
     show_contact_form()
+
+if 'message_data' in st.session_state:
+    import asyncio
+    asyncio.run(send_message(st.session_state.pop('message_data')))

@@ -1,19 +1,17 @@
 import streamlit as st
-
-from aiogram import Bot
-from aiogram.exceptions import TelegramAPIError
+import telegram
 
 
 TELEGRAM_TOKEN = st.secrets['TELEGRAM_TOKEN']
 CHAT_ID = st.secrets['CHAT_ID']
 
-bot = Bot(token=TELEGRAM_TOKEN)
+bot = telegram.Bot(token=TELEGRAM_TOKEN)
 
 
 async def send_message(message: str):
     try:
         await bot.send_message(chat_id=CHAT_ID, text=message)
-        return True
-    except TelegramAPIError as e:
+    except telegram.error.TelegramError as e:
         st.error(f'Error sending message: {e}')
-        return False
+    else:
+        st.success('Message sent!')
