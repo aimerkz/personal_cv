@@ -1,3 +1,4 @@
+import asyncio
 import streamlit as st
 
 from bot import send_message
@@ -20,5 +21,5 @@ if st.button('Send'):
     show_contact_form()
 
 if 'message_data' in st.session_state:
-    import asyncio
-    asyncio.run(send_message(st.session_state.pop('message_data')))
+    message = st.session_state.pop('message_data')
+    asyncio.run(send_message(message))

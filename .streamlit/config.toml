@@ -19,6 +19,3 @@ messageFormat = "%(asctime)s - %(levelname)s - %(message)s"
 
 [client]
 toolbarMode = "minimal"
-
-[ui]
-hideThemeSelector = true
