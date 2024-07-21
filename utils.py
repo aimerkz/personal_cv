@@ -1,7 +1,8 @@
+from datetime import datetime
 from io import BytesIO
 
-import streamlit as st
 import qrcode
+import streamlit as st
 from PIL import Image
 
 from config import SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK
@@ -35,8 +36,8 @@ def get_cv_info():
     st.header("Courses and Certifications")
     st.write(
         """
-        **Yandex Practicum (2022):** Python Backend Developer  
-        **Stepik (2022):** Basics of Python / Basics of SQL / Introduction to Databases  
+        **Yandex Practicum (2022):** Python Backend Developer \n
+        **Stepik (2022):** Basics of Python / Basics of SQL / Introduction to Databases \n
         **GeekBrains (2022):** Basic Git Course  
     """
     )
@@ -95,6 +96,7 @@ def get_work_history():
     )
 
 
+@st.cache_data(persist=True, max_entries=1, show_spinner=False)
 def get_qr_code():
     qr = qrcode.QRCode(
         version=1,
@@ -132,3 +134,10 @@ def get_contacts_info():
 
     if st.session_state.show_content:
         get_qr_code()
+
+
+@st.cache_data(ttl='90 days', show_spinner=False, max_entries=1)
+def calculate_age(birth_date: datetime.date):
+    today = datetime.today()
+    age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+    return age

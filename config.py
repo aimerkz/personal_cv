@@ -5,7 +5,6 @@ from PIL import Image
 current_dir = Path(__file__).parent
 css_dir = current_dir / 'styles' / 'main.css'
 profile_image = current_dir / 'static' / 'profile.jpg'
-resume_file = current_dir / 'static' / 'Artem Merkulov CV.pdf'
 
 
 # General info
@@ -13,7 +12,6 @@ PAGE_TITLE = 'CV Artem Merkulov'
 PAGE_ICON = ':coffee:'
 NAME = 'Artem Merkulov'
 DESCRIPTION = 'Python Backend Developer'
-AGE = 28
 EMAIL = 'artem-merk96@yandex.ru'
 
 SOCIAL_MEDIA = {
@@ -29,9 +27,5 @@ SOCIAL_MEDIA_ICONS = {
 }
 
 TELEGRAM_LINK = 'https://t.me/aimerkulov96'
-
-# Load resume
-with open(resume_file, 'rb') as resume:
-    resume = resume.read()
 
 profile_pic = Image.open(profile_image)
