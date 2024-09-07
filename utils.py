@@ -1,4 +1,3 @@
-from datetime import datetime
 from io import BytesIO
 
 import qrcode
@@ -8,11 +7,12 @@ from PIL import Image
 from config import SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK
 
 
+@st.cache_data(max_entries=1, show_spinner=False)
 def get_hard_skills():
     st.subheader("Hard Skills")
     st.write(
         """
-    - 👩‍💻 Programming: Python, SQL, pytest, unittest, pytest_mock, factory_boy, pandas, numpy, PyJWT
+    - 👩‍💻 Programming: Python, SQL, pytest, unittest, pytest_mock, factory_boy, pandas, numpy
     - 💻 Frameworks and ORMs: Django + Django ORM, DRF, FastAPI, Flask, Celery, Flower
     - 🗄️ Databases: Postgres, MySQL, Redis
     - ⌨️ OS and instruments: Ubuntu, Pycharm, Jira, Confluence, GitHub, Gitlab
@@ -22,6 +22,7 @@ def get_hard_skills():
     )
 
 
+@st.cache_data(max_entries=1, show_spinner=False)
 def get_cv_info():
     st.header("Education")
     st.write(
@@ -43,6 +44,7 @@ def get_cv_info():
     )
 
 
+@st.cache_data(max_entries=1, show_spinner=False)
 def get_work_history():
     st.subheader(':briefcase: Spider Group')
     st.write('05/2024 - Present')
@@ -134,10 +136,3 @@ def get_contacts_info():
 
     if st.session_state.show_content:
         get_qr_code()
-
-
-@st.cache_data(ttl='90 days', show_spinner=False, max_entries=1)
-def calculate_age(birth_date: datetime.date):
-    today = datetime.today()
-    age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
-    return age

@@ -1,10 +1,12 @@
+import streamlit as st
+
 from pathlib import Path
 from PIL import Image
 
 # Dirs
 current_dir = Path(__file__).parent
 css_dir = current_dir / 'styles' / 'main.css'
-profile_image = current_dir / 'static' / 'profile.jpg'
+profile_image = current_dir / 'static' / 'profile.png'
 
 
 # General info
