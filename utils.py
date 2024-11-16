@@ -46,6 +46,24 @@ def get_cv_info():
 
 @st.cache_data(max_entries=1, show_spinner=False)
 def get_work_history():
+    st.subheader(':briefcase: STC')
+    st.write('10/2024 - Present')
+    st.write(
+        """
+        **Role:** Python Backend Developer  
+        **Responsibilities:**
+        - ► Rest API developments in Flask;
+        - ► Organizing background tasks using Flask-APScheduler;
+        - ► Parsing data from xlsx, csv, json, geojson using pandas;
+        - ► Optimizing methods using multiprocessing and threading;
+        - ► Test coverage by python unittest;
+        - ► Global code refactoring;
+        - ► Writing Dockerfile and docker-compose.yml, using multistage;
+        - ► Basic nginx configuration;
+        - ► Deploying changes to test and prod servers.
+    """
+    )
+    st.write('\n')
     st.subheader(':briefcase: Spider Group')
     st.write('05/2024 - Present')
     st.write(
@@ -53,7 +71,7 @@ def get_work_history():
         **Role:** Python Backend Developer  
         **Responsibilities:**
         - ► Improved backend of an online store using FastApi and DRF + Redis;
-        - ► Implemented SMS and PyJWT-based authorization and authentication;
+        - ► Implemented SMS authentication and PyJWT-based authorization;
         - ► Configured full-text search using Sphinx;
         - ► Developed APIs for routine tasks;
         - ► Wrote raw SQL queries and worked with Django ORM;
