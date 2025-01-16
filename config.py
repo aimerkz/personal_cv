@@ -1,12 +1,12 @@
-import streamlit as st
-
 from pathlib import Path
 from PIL import Image
 
 # Dirs
-current_dir = Path(__file__).parent
-css_dir = current_dir / 'styles' / 'main.css'
-profile_image = current_dir / 'static' / 'profile.png'
+CURRENT_DIR = Path(__file__).parent
+CSS_DIR = CURRENT_DIR / 'styles' / 'main.css'
+PROFILE_IMAGE = CURRENT_DIR / 'static' / 'profile.png'
+ED_DIR = CURRENT_DIR / 'static' / 'education.json'
+WORK_DIR = CURRENT_DIR / 'static' / 'work_history.json'
 
 
 # General info
@@ -29,5 +29,4 @@ SOCIAL_MEDIA_ICONS = {
 }
 
 TELEGRAM_LINK = 'https://t.me/aimerkulov96'
-
-profile_pic = Image.open(profile_image)
+PROFILE_PIC = Image.open(PROFILE_IMAGE)

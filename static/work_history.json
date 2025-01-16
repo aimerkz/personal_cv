@@ -1,0 +1,69 @@
+{
+  "work_history": [
+    {
+      "company": "STC (Special Technology Control)",
+      "link": "https://www.stc-groups.ru/",
+      "role": "Python Backend Developer (outstaffing)",
+      "period": "10/2024 - Present",
+      "responsibilities": [
+        "Rest API developments in Flask",
+        "Organizing background tasks using Flask-APScheduler",
+        "Parsing data from xlsx, csv, json, geojson using pandas",
+        "Optimizing methods using multiprocessing and threading",
+        "Test coverage by python unittest",
+        "Global code refactoring",
+        "Writing Dockerfile and docker-compose.yml, using multistage",
+        "Basic nginx configuration",
+        "Deploying changes to test and prod servers"
+      ]
+    },
+    {
+      "company": "Spider Group",
+      "link": "https://spider.ru/",
+      "role": "Python Backend Developer",
+      "period": "05/2024 - Present",
+      "responsibilities": [
+        "Improved backend of an online store using FastApi and DRF + Redis",
+        "Implemented SMS authentication (Integration with API SIGMA messaging) and PyJWT-based authorization",
+        "Integration with API Tinkoff and Youkassa for making payments",
+        "Configured full-text search using Sphinx",
+        "Developed APIs for routine tasks",
+        "Wrote raw SQL queries and worked with Django ORM",
+        "Supported and optimized local development",
+        "Conducted code reviews and refactoring"
+      ]
+    },
+    {
+      "company": "Napoleon IT",
+      "link": "https://napoleonit.ru/",
+      "role": "Backend Python Developer",
+      "period": "06/2023 - 07/2024",
+      "responsibilities": [
+        "Developed backend platform on FastApi for business process automation at Gloria Jeans",
+        "Implemented and supported sections for store planning",
+        "Developed APIs for routine tasks",
+        "Developed calculation methods using Pandas and Numpy",
+        "Wrote GraphQL queries",
+        "Wrote tests using pytest and pytest_mock",
+        "Supported and optimized local development",
+        "Developed backend platform on DRF + Celery + Redis for Lenta",
+        "Handled data import and export using openpyxl",
+        "Covered code with tests using pytest and factory_boy",
+        "Conducted code reviews and refactoring",
+        "Developed a parser for md and yml templates using re, argparse, yaml, BeautifulSoup4"
+      ]
+    },
+    {
+      "company": "High Technologies and Strategic Systems",
+      "link": "https://www.k-tech.ru/",
+      "role": "Programmer",
+      "period": "04/2022 - 06/2023",
+      "responsibilities": [
+        "Developed REST API using Django and DRF",
+        "Covered code with tests using python unittest",
+        "Created packages using setuptools",
+        "Conducted code reviews and refactoring"
+      ]
+    }
+  ]
+}

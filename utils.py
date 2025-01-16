@@ -1,119 +1,58 @@
+import json
 from io import BytesIO
 
 import qrcode
 import streamlit as st
 from PIL import Image
 
-from config import SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK
+from config import ED_DIR, SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK, WORK_DIR
 
 
 @st.cache_data(max_entries=1, show_spinner=False)
 def get_hard_skills():
-    st.subheader("Hard Skills")
+    st.subheader('Hard Skills')
     st.write(
         """
-    - 👩‍💻 Programming: Python, SQL, pytest, unittest, pytest_mock, factory_boy, pandas, numpy
-    - 💻 Frameworks and ORMs: Django + Django ORM, DRF, FastAPI, Flask, Celery, Flower
+    - 👩‍💻 Programming: Python, Go (minimal base), SQL
+    - 💻 Frameworks and ORMs: Django + Django ORM, DRF, FastAPI, Flask
     - 🗄️ Databases: Postgres, MySQL, Redis
+    - 🎲 Tests: unittest, pytest, pytest_mock, factory_boy
     - ⌨️ OS and instruments: Ubuntu, Pycharm, Jira, Confluence, GitHub, Gitlab
     - 💾 Infrastructure: Docker, docker-compose, nginx
-    - 🔎 Others: Sphinx, GraphQL, re, argparse, BeautifulSoup4, openpyxl, poetry, setuptools
+    - 🔎 Others: Celery, Flower, Sphinx, GraphQL, re, argparse, BeautifulSoup4, openpyxl, poetry, 
+                 pandas, numpy, setuptools, streamlit
     """
     )
 
 
 @st.cache_data(max_entries=1, show_spinner=False)
-def get_cv_info():
-    st.header("Education")
-    st.write(
-        """
-        **Master's Degree (2021):** Kaluga State University named after K. E. Tsiolkovsky, Kaluga  
-        **Field:** Russian as a Foreign Language \n
-        **Bachelor's Degree (2018):** Kaluga State University named after K. E. Tsiolkovsky, Kaluga  
-        **Field:** Russian Language and Literature  
-    """
-    )
-
-    st.header("Courses and Certifications")
-    st.write(
-        """
-        **Yandex Practicum (2022):** Python Backend Developer \n
-        **Stepik (2022):** Basics of Python / Basics of SQL / Introduction to Databases \n
-        **GeekBrains (2022):** Basic Git Course  
-    """
-    )
+def load_data(file_dir: str):
+    with open(file_dir, 'r', encoding='utf-8') as file:
+        return json.load(file)
 
 
-@st.cache_data(max_entries=1, show_spinner=False)
-def get_work_history():
-    st.subheader(':briefcase: STC')
-    st.write('10/2024 - Present')
-    st.write(
-        """
-        **Role:** Python Backend Developer  
-        **Responsibilities:**
-        - ► Rest API developments in Flask;
-        - ► Organizing background tasks using Flask-APScheduler;
-        - ► Parsing data from xlsx, csv, json, geojson using pandas;
-        - ► Optimizing methods using multiprocessing and threading;
-        - ► Test coverage by python unittest;
-        - ► Global code refactoring;
-        - ► Writing Dockerfile and docker-compose.yml, using multistage;
-        - ► Basic nginx configuration;
-        - ► Deploying changes to test and prod servers.
-    """
-    )
-    st.write('\n')
-    st.subheader(':briefcase: Spider Group')
-    st.write('05/2024 - Present')
-    st.write(
-        """
-        **Role:** Python Backend Developer  
-        **Responsibilities:**
-        - ► Improved backend of an online store using FastApi and DRF + Redis;
-        - ► Implemented SMS authentication and PyJWT-based authorization;
-        - ► Configured full-text search using Sphinx;
-        - ► Developed APIs for routine tasks;
-        - ► Wrote raw SQL queries and worked with Django ORM;
-        - ► Supported and optimized local development;
-        - ► Conducted code reviews and refactoring.
-    """
-    )
-    st.write('\n')
-    st.subheader(":briefcase: Napoleon IT")
-    st.write('06/2023 - 07/2024')
-    st.write(
-        """
-        **Role:** Backend Python Developer  
-        **Responsibilities:**
-        - ► Developed backend platform on FastApi for business process automation at Gloria Jeans;
-        - ► Implemented and supported sections for store planning;
-        - ► Developed APIs for routine tasks;
-        - ► Developed calculation methods using Pandas and Numpy;
-        - ► Wrote GraphQL queries;
-        - ► Wrote tests using pytest and pytest_mock;
-        - ► Supported and optimized local development;
-        - ► Developed backend platform on DRF + Celery + Redis for Lenta;
-        - ► Handled data import and export using openpyxl;
-        - ► Covered code with tests using pytest and factory_boy;
-        - ► Conducted code reviews and refactoring;
-        - ► Developed a parser for md and yml templates using re, argparse, yaml, BeautifulSoup4.
-    """
-    )
+def display_ed():
+    data = load_data(ED_DIR)
+    st.header('Education')
 
-    st.write('\n')
-    st.subheader(':briefcase: High Technologies and Strategic Systems')
-    st.write('04/2022 - 06/2023')
-    st.write(
-        """
-        **Role:** Programmer  
-        **Responsibilities:**
-        - ► Developed REST API using Django and DRF;
-        - ► Covered code with tests using python unittest;
-        - ► Created packages using setuptools;
-        - ► Conducted code reviews and refactoring.
-    """
-    )
+    for item in data['education']:
+        st.write(f"**{item['degree']} ({item['year']}):** {item['university']}, {item['field']}")
+
+    st.header('Courses and Certifications')
+    for item in data['courses']:
+        st.write(f"**{item['course']} ({item['year']}):** [{item['field']}]({item['link']})")
+
+
+def display_work_history():
+    data = load_data(WORK_DIR)
+
+    for job in data['work_history']:
+        st.subheader(f":briefcase: [{job['company']}]({job['link']})")
+        st.write(f"{job['period']}")
+        st.write(f"**Role:** {job['role']}")
+        st.write("**Responsibilities:**")
+        for responsibility in job['responsibilities']:
+            st.write(f" - ► {responsibility}")
 
 
 @st.cache_data(persist=True, max_entries=1, show_spinner=False)
