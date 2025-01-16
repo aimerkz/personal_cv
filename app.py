@@ -1,6 +1,6 @@
 import streamlit as st
 
-from config import css_dir
+from config import CSS_DIR
 
 
 # Pages setup
@@ -33,7 +33,7 @@ pg = st.navigation(
 st.sidebar.text('🍀 by Artem Merkulov')
 
 # Load static
-with open(css_dir) as css_file:
+with open(CSS_DIR) as css_file:
     css_text = css_file.read()
 st.markdown(f'<style>{css_text}</style>', unsafe_allow_html=True)
 

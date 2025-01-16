@@ -1,0 +1,54 @@
+{
+  "education": [
+    {
+      "degree": "Master's Degree",
+      "year": 2021,
+      "university": "Kaluga State University named after K. E. Tsiolkovsky",
+      "field": "Russian as a Foreign Language"
+    },
+    {
+      "degree": "Bachelor's Degree",
+      "year": 2018,
+      "university": "Kaluga State University named after K. E. Tsiolkovsky",
+      "field": "Russian Language and Literature"
+    }
+  ],
+  "courses": [
+    {
+      "course": "Yandex Practicum",
+      "year": 2022,
+      "field": "Python Backend Developer",
+      "link": "https://disk.yandex.ru/i/k37WB90TtrO25w"
+    },
+    {
+      "course": "Stepik",
+      "year": 2022,
+      "field": "Basics of Python",
+      "link": "https://stepik.org/cert/1524869/"
+    },
+    {
+      "course": "Stepik",
+      "year": 2022,
+      "field": "Basics of SQLs",
+      "link": "https://stepik.org/cert/1510217/"
+    },
+    {
+      "course": "Stepik",
+      "year": 2022,
+      "field": "Introduction to Databases",
+      "link": "https://stepik.org/cert/1665589/"
+    },
+    {
+      "course": "GeekBrains",
+      "year": 2022,
+      "field": "Basic Git Course",
+      "link": "https://habrastorage.org/getpro/moikrug/uploads/additional_education/000/074/638/diploma/1b6556f405a24485b846270b8fb7b5ab.png"
+    },
+    {
+      "course": "Stepik",
+      "year": 2024,
+      "field": "Programming in Golang",
+      "link": "https://stepik.org/cert/2686843/"
+    }
+  ]
+}
