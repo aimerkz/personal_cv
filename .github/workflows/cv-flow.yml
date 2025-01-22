@@ -1,0 +1,59 @@
+name: Personal CV workflow
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  build_push_dockerhub:
+    name: Push docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Docker
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: ../personal_cv
+          file: ../personal_cv/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/personal-cv:v1
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_push_dockerhub
+    steps:
+      - name: Execute remote SSH commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            sudo docker-compose down
+            sudo docker-compose pull ${{ secrets.DOCKER_USERNAME }}/personal-cv:v1
+            echo -e "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}\nCHAT_ID=${{ secrets.CHAT_ID }}" >> .streamlit/secrets.toml
+            sudo docker-compose up -d
+
+  send_message:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Send Message to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: ${{ github.workflow }} успешно выполнен!
