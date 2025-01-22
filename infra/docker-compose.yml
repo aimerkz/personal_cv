@@ -1,6 +1,6 @@
 services:
 
-  personal_cv:
+  personal-cv:
     image: merkulovai/personal-cv:v1
     restart: always
     ports:
