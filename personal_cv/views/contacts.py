@@ -1,9 +1,9 @@
 import asyncio
 import streamlit as st
 
-from bot import send_message
-from forms.contact_form import contact_form
-from utils import get_contacts_info
+from personal_cv.bot import send_message
+from personal_cv.forms.contact_form import contact_form
+from personal_cv.utils import get_contacts_info
 
 
 @st.experimental_dialog('Contact Me')

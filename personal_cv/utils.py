@@ -5,7 +5,7 @@ import qrcode
 import streamlit as st
 from PIL import Image
 
-from config import ED_DIR, SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK, WORK_DIR
+from personal_cv.config import ED_DIR, SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK, WORK_DIR
 
 
 @st.cache_data(max_entries=1, show_spinner=False)

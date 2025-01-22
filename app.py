@@ -1,22 +1,22 @@
 import streamlit as st
 
-from config import CSS_DIR
+from personal_cv.config import CSS_DIR
 
 
 # Pages setup
 about_page = st.Page(
-    'views/about.py',
+    'personal_cv/views/about.py',
     title='About Me',
     icon='☕',
     default=True,
 )
 work_history_page = st.Page(
-    'views/work_history.py',
+    'personal_cv/views/work_history.py',
     title='Work history',
     icon='🧑‍💼',
 )
 contacts_page = st.Page(
-    'views/contacts.py',
+    'personal_cv/views/contacts.py',
     title='Contacts',
     icon='📒',
 )
