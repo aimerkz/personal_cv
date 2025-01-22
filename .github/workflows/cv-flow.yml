@@ -45,7 +45,7 @@ jobs:
             cd /home/infra
             sudo docker compose down
             sudo docker compose exec -T personal-cv bash -c "echo -e 'TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}\nCHAT_ID=${{ secrets.CHAT_ID }}' >> ./app/.streamlit/secrets.toml"
-            sudo docker compose -f ./infra/docker-compose.yml up -d
+            sudo docker compose -f ./docker-compose.yml up -d
 
   send_message:
     runs-on: ubuntu-latest
