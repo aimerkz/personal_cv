@@ -2,18 +2,41 @@ services:
 
   personal-cv:
     image: merkulovai/personal-cv:v1
+    container_name: personal-cv
     restart: always
     ports:
       - "8501:8501"
+    networks:
+      cv-net:
 
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
       - "80:80"
       - "8081:443"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - /root/cert/homemerk.ddns.net/fullchain.pem:/etc/nginx/homemerk.crt:ro
-      - /root/cert/homemerk.ddns.net/privkey.pem:/etc/nginx/homemerk.key:ro
+      - ./ssl:/etc/letsencrypt
+      - ./webroot:/var/www/certbot
     depends_on:
       - personal-cv
+      - certbot
+    networks:
+      cv-net:
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    restart: unless-stopped
+    volumes:
+      - ./ssl:/etc/letsencrypt
+      - ./webroot:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; certbot certonly --standalone --preferred-challenges http -d homemerk.ddns.net --email merk.aimerk@gmail.com && touch /etc/letsencrypt/.certbot-done; exit 0'"
+    networks:
+      cv-net:
+
+networks:
+  cv-net:
+    name: cv-net
+    driver: bridge
