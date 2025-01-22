@@ -44,7 +44,7 @@ jobs:
           script: |
             sudo docker compose down
             sudo docker compose pull ${{ secrets.DOCKER_USERNAME }}/personal-cv:v1
-            cat ./personal_cv/.streamlit/config.toml
+            cat ./app/.streamlit/config.toml
             echo -e "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}\nCHAT_ID=${{ secrets.CHAT_ID }}" >> ./personal_cv/.streamlit/secrets.toml
             sudo docker compose up -d
 
