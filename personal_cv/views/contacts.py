@@ -6,7 +6,7 @@ from personal_cv.forms.contact_form import contact_form
 from personal_cv.utils import get_contacts_info
 
 
-@st.experimental_dialog('Contact Me')
+@st.dialog('Contact Me')
 def show_contact_form():
     contact_form()
 
