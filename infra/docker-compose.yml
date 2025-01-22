@@ -1,0 +1,19 @@
+services:
+
+  personal_cv:
+    image: merkulovai/personal-cv:v1
+    restart: always
+    ports:
+      - "8501:8501"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - /root/cert/homemerk.ddns.net/fullchain.pem:/etc/nginx/homemerk.crt:ro
+      - /root/cert/homemerk.ddns.net/privkey.pem:/etc/nginx/homemerk.key:ro
+    depends_on:
+      - personal_cv
