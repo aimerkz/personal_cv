@@ -16,4 +16,4 @@ services:
       - /root/cert/homemerk.ddns.net/fullchain.pem:/etc/nginx/homemerk.crt:ro
       - /root/cert/homemerk.ddns.net/privkey.pem:/etc/nginx/homemerk.key:ro
     depends_on:
-      - personal_cv
+      - personal-cv
