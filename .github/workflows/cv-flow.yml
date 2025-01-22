@@ -7,7 +7,7 @@ on:
 jobs:
 
   build_push_dockerhub:
-    name: Push docker image to Docker Hub
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
@@ -25,8 +25,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v6
         with:
-          context: ../personal_cv
-          file: ../personal_cv/Dockerfile
+          context: ./personal_cv
+          file: ./personal_cv/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/personal-cv:v1
 
