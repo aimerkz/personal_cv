@@ -8,6 +8,7 @@
       "responsibilities": [
         "Rest API developments in Flask",
         "Organizing background tasks using Flask-APScheduler",
+        "Integration with the 2GIS API to build a route using transmitted coordinates",
         "Parsing data from xlsx, csv, json, geojson using pandas",
         "Optimizing methods using multiprocessing and threading",
         "Test coverage by python unittest",
@@ -20,7 +21,7 @@
     {
       "company": "Spider Group",
       "link": "https://spider.ru/",
-      "role": "Python Backend Developer",
+      "role": "Software engineer",
       "period": "05/2024 - Present",
       "responsibilities": [
         "Improved backend of an online store using FastApi and DRF + Redis",
