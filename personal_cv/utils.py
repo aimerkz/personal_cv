@@ -14,13 +14,13 @@ def get_hard_skills():
     st.write(
         """
     - 👩‍💻 Programming: Python, Go (minimal base), SQL
-    - 💻 Frameworks and ORMs: Django + Django ORM, DRF, FastAPI, Flask
+    - 💻 Frameworks and ORMs: Django + Django ORM, DRF, FastAPI, Flask, aiogram
     - 🗄️ Databases: Postgres, MySQL, Redis
     - 🎲 Tests: unittest, pytest, pytest_mock, factory_boy
     - ⌨️ OS and instruments: Ubuntu, Pycharm, Jira, Confluence, GitHub, Gitlab
     - 💾 Infrastructure: Docker, docker-compose, nginx
     - 🔎 Others: Celery, Flower, Sphinx, GraphQL, re, argparse, BeautifulSoup4, openpyxl, poetry, 
-                 pandas, numpy, setuptools, streamlit
+                 pandas, numpy, setuptools, streamlit, pydantic, marshmallow
     """
     )
 
