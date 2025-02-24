@@ -1,10 +1,19 @@
 {
   "work_history": [
     {
+      "company": "Basis",
+      "link": "https://basistech.ru/",
+      "role": "Python Backend Developer",
+      "period": "02/2025 - Present",
+      "responsibilities": [
+        "Python development"
+      ]
+    },
+    {
       "company": "STC (Special Technology Control)",
       "link": "https://www.stc-groups.ru/",
       "role": "Python Backend Developer (outstaffing)",
-      "period": "10/2024 - Present",
+      "period": "10/2024 - 02/2025",
       "responsibilities": [
         "Rest API developments in Flask",
         "Organizing background tasks using Flask-APScheduler",
@@ -22,7 +31,7 @@
       "company": "Spider Group",
       "link": "https://spider.ru/",
       "role": "Software engineer",
-      "period": "05/2024 - Present",
+      "period": "05/2024 - 02/2025",
       "responsibilities": [
         "Improved backend of an online store using FastApi and DRF + Redis",
         "Implemented SMS authentication (Integration with API SIGMA messaging) and PyJWT-based authorization",
