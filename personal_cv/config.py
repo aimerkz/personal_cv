@@ -1,4 +1,6 @@
 from pathlib import Path
+
+import streamlit as st
 from PIL import Image
 
 # Dirs
@@ -7,6 +9,7 @@ CSS_DIR = CURRENT_DIR / 'styles' / 'main.css'
 PROFILE_IMAGE = CURRENT_DIR / 'static' / 'profile.png'
 ED_DIR = CURRENT_DIR / 'static' / 'education.json'
 WORK_DIR = CURRENT_DIR / 'static' / 'work_history.json'
+PROJECTS_DIR = CURRENT_DIR / 'static' / 'projects.json'
 
 
 # General info
@@ -30,3 +33,14 @@ SOCIAL_MEDIA_ICONS = {
 
 TELEGRAM_LINK = 'https://t.me/aimerkulov96'
 PROFILE_PIC = Image.open(PROFILE_IMAGE)
+
+
+def load_css(css_path):
+    try:
+        with open(css_path, 'r') as css_file:
+            css_text = css_file.read()
+        st.markdown(f'<style>{css_text}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error("CSS file not found.")
+    except Exception as e:
+        st.error(f"An error occurred while loading CSS: {e}")

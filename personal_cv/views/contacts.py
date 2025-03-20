@@ -1,4 +1,3 @@
-import asyncio
 import streamlit as st
 
 from personal_cv.bot import send_message
@@ -22,4 +21,4 @@ if st.button('Send'):
 
 if 'message_data' in st.session_state:
     message = st.session_state.pop('message_data')
-    asyncio.run(send_message(message))
+    send_message(message)

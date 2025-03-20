@@ -1,0 +1,10 @@
+{
+  "projects": [
+    {
+      "name": "Telegram Bot with ChatGPT and Image Generator",
+      "link": "https://t.me/merk_api_bot",
+      "description": "This bot uses ChatGPT to answer questions and supports full-fledged dialogues. It can also generate 1 to 3 images based on a text description.",
+      "technologies": ["Python 3.12", "Aiogram", "Openai", "Docker"]
+    }
+  ]
+}
