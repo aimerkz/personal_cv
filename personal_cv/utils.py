@@ -5,7 +5,8 @@ import qrcode
 import streamlit as st
 from PIL import Image
 
-from personal_cv.config import ED_DIR, SOCIAL_MEDIA, SOCIAL_MEDIA_ICONS, TELEGRAM_LINK, WORK_DIR
+from personal_cv.config import (ED_DIR, PROJECTS_DIR, SOCIAL_MEDIA,
+                                SOCIAL_MEDIA_ICONS, TELEGRAM_LINK, WORK_DIR)
 
 
 @st.cache_data(max_entries=1, show_spinner=False)
@@ -53,6 +54,17 @@ def display_work_history():
         st.write("**Responsibilities:**")
         for responsibility in job['responsibilities']:
             st.write(f" - ► {responsibility}")
+
+
+def display_projects():
+    data = load_data(PROJECTS_DIR)
+
+    for project in data['projects']:
+        st.subheader(f":briefcase: [{project['name']}]({project['link']})")
+        st.write(f"{project['description']}")
+        st.write("**Technologies:**")
+        for technology in project['technologies']:
+            st.write(f" - ► {technology}")
 
 
 @st.cache_data(persist=True, max_entries=1, show_spinner=False)
