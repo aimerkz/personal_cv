@@ -5,6 +5,12 @@
       "link": "https://t.me/merk_api_bot",
       "description": "This bot uses ChatGPT to answer questions and supports full-fledged dialogues. It can also generate 1 to 3 images based on a text description.",
       "technologies": ["Python 3.12", "Aiogram", "Openai", "Docker"]
+    },
+    {
+      "name": "Personal resume website",
+      "link": "https://amerkulovcv.streamlit.app/",
+      "description": "A site that is my resume for potential employers and anyone interested.",
+      "technologies": ["Python 3.12", "Streamlit"]
     }
   ]
 }

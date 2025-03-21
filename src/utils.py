@@ -70,7 +70,7 @@ def display_projects():
     data = load_data(PROJECTS_DIR)
 
     for project in data["projects"]:
-        st.subheader(f":briefcase: [{project['name']}]({project['link']})")
+        st.subheader(f":package: [{project['name']}]({project['link']})")
         st.write(f"{project['description']}")
         st.write("**Technologies:**")
         for technology in project["technologies"]:
