@@ -6,6 +6,10 @@ env/
 vscode/
 .streamlit/secrets.toml
 
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
 .Python
 build/
 develop-eggs/

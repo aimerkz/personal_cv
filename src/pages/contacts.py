@@ -10,15 +10,19 @@ def show_contact_form():
     contact_form()
 
 
-st.title("Contacts")
-get_contacts_info()
-st.write("\n")
+def contacts_page() -> None:
+    st.title("Contacts")
+    get_contacts_info()
+    st.write("\n")
 
-st.subheader("Also you can write to my bot in Telegram:")
+    st.subheader("Also you can write to my bot in Telegram:")
 
-if st.button("Send"):
-    show_contact_form()
+    if st.button("Send"):
+        show_contact_form()
 
-if "message_data" in st.session_state:
-    message = st.session_state.pop("message_data")
-    send_message(message)
+    if "message_data" in st.session_state:
+        message = st.session_state.pop("message_data")
+        send_message(message)
+
+
+contacts_page()
