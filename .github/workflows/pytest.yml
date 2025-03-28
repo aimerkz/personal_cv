@@ -1,0 +1,33 @@
+name: Pytest
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt && pip install -r requirements-dev.txt && pip install pytest-md pytest-emoji
+
+      - name: Run tests
+        uses: pavelzw/pytest-action@v2
+        with:
+          report-title: 'Pytest Report'
+          click-to-expand: true
+          emoji: true
+          job-summary: true
+          verbose: true
+          custom-arguments: '-c pytest.ini'

@@ -12,15 +12,15 @@ def app() -> AppTest:
 
 
 @pytest.fixture
-def mock_st(mocker):
+def mock_st_about(mocker):
     mock_st = mocker.patch("src.pages.about.st")
     return mock_st
 
 
 @pytest.fixture
-def mock_columns(mock_st):
+def mock_columns_about(mock_st_about):
     mock_columns = [MagicMock(), MagicMock()]
-    mock_st.columns.return_value = mock_columns
+    mock_st_about.columns.return_value = mock_columns
     return mock_columns
 
 
