@@ -12,15 +12,15 @@ def app() -> AppTest:
 
 
 @pytest.fixture
-def mock_st_about(mocker):
+def mock_st(mocker):
     mock_st = mocker.patch("src.pages.about.st")
     return mock_st
 
 
 @pytest.fixture
-def mock_columns_about(mock_st_about):
+def mock_columns_about(mock_st):
     mock_columns = [MagicMock(), MagicMock()]
-    mock_st_about.columns.return_value = mock_columns
+    mock_st.columns.return_value = mock_columns
     return mock_columns
 
 
@@ -32,3 +32,20 @@ def mock_get_hard_skills(mocker):
 @pytest.fixture
 def mock_display_ed(mocker):
     return mocker.patch("src.pages.about.display_ed")
+
+
+@pytest.fixture
+def mock_title(mock_st):
+    mock_projects_title = "Test Title"
+    mock_st.title.return_value = mock_projects_title
+    return mock_projects_title
+
+
+@pytest.fixture
+def mock_display_projects(mocker):
+    return mocker.patch("src.pages.projects.display_projects")
+
+
+@pytest.fixture
+def mock_display_work_history(mocker):
+    return mocker.patch("src.pages.work_history.display_work_history")
