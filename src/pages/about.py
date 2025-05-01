@@ -12,7 +12,7 @@ def about_page() -> None:
     with col2:
         st.title(NAME, anchor=False)
         st.write(DESCRIPTION)
-        st.write("Full time work, 100% remote")
+        st.write("Full time work, 100% remotely")
 
     get_hard_skills()
     display_ed()

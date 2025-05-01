@@ -6,7 +6,9 @@
       "role": "Python Backend Developer",
       "period": "02/2025 - Present",
       "responsibilities": [
-        "Python development"
+        "Rest API developments in DRF and Litestar",
+        "Optimizing methods using asyncio",
+        "Test coverage by python unittest"
       ]
     },
     {
