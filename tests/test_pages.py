@@ -47,7 +47,7 @@ def test_about_page(
         assert mock_about_st.write.call_count == 2
         calls = [args[0] for args, _ in mock_about_st.write.call_args_list]
         assert DESCRIPTION in calls
-        assert "Full time work, 100% remote" in calls
+        assert "Full time work, 100% remotely" in calls
 
     mock_get_hard_skills.assert_called_once()
     mock_display_ed.assert_called_once()
