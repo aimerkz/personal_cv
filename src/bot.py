@@ -1,16 +1,39 @@
 import streamlit as st
 import telebot
 
-TELEGRAM_TOKEN = st.secrets["TELEGRAM_TOKEN"]
-CHAT_ID = st.secrets["CHAT_ID"]
 
-bot = telebot.TeleBot(TELEGRAM_TOKEN)
+@st.cache_resource(ttl=None, show_spinner=False)
+def get_tg_bot() -> telebot.TeleBot:
+    tg_token = st.secrets["TELEGRAM_TOKEN"]
+    return telebot.TeleBot(tg_token)
 
 
-def send_message(message: str):
-    try:
-        bot.send_message(chat_id=CHAT_ID, text=message)
-    except telebot.apihelper.ApiException as e:
-        st.error(f"Error sending message: {e}")
-    else:
-        st.success("Message sent!")
+class TelegramBot:
+    def __init__(
+        self, bot: telebot.TeleBot | None = None, chat_id: int | None = None
+    ) -> None:
+        self._bot = bot
+        self._chat_id = chat_id
+
+    @property
+    def bot(self) -> telebot.TeleBot:
+        if self._bot is None:
+            self._bot = get_tg_bot()
+        return self._bot
+
+    @property
+    def chat_id(self) -> int:
+        if self._chat_id is None:
+            self._chat_id = st.secrets["CHAT_ID"]
+        return self._chat_id
+
+    def send_message(self, message: str) -> None:
+        try:
+            self.bot.send_message(chat_id=self.chat_id, text=message)
+        except telebot.apihelper.ApiException as e:
+            st.error(f"Error sending message: {e}")
+        else:
+            st.success("Message sent!")
+
+
+tg_bot = TelegramBot()
