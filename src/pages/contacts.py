@@ -1,6 +1,6 @@
 import streamlit as st
 
-from src.bot import send_message
+from src.bot import tg_bot
 from src.forms.contact_form import contact_form
 from src.utils import get_contacts_info
 
@@ -22,7 +22,7 @@ def contacts_page() -> None:
 
     if "message_data" in st.session_state:
         message = st.session_state.pop("message_data")
-        send_message(message)
+        tg_bot.send_message(message)
 
 
 contacts_page()
