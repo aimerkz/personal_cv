@@ -88,20 +88,20 @@ def mock_display_contacts_info(mock_display_func_factory) -> MagicMock:
 
 
 @pytest.fixture
-def mock_columns_about(mock_about_st) -> list[MagicMock]:
-    mock_columns = [MagicMock(), MagicMock()]
-    mock_about_st.columns.return_value = mock_columns
-    return mock_columns
-
-
-@pytest.fixture
 def mock_attrs_factory():
     def _mock(target_mock: MagicMock, attrs: [dict[str, Any]]) -> MagicMock:
         for key, value in attrs.items():
             target_mock.key.return_value = value
-            return target_mock
+        return target_mock
 
     return _mock
+
+
+@pytest.fixture
+def mock_about_page_attrs(mock_attrs_factory, mock_about_st) -> MagicMock:
+    mock = mock_attrs_factory(mock_about_st, {})
+    mock.columns.return_value = [MagicMock(), MagicMock()]
+    return mock
 
 
 @pytest.fixture

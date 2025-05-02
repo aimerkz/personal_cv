@@ -31,14 +31,14 @@ def test_pages_exist(app):
 
 
 def test_about_page(
-    mock_about_st, mock_columns_about, mock_get_hard_skills, mock_display_ed
+    mock_about_st, mock_about_page_attrs, mock_get_hard_skills, mock_display_ed
 ):
     about_page()
     mock_about_st.columns.assert_called_once_with(
         2, gap="small", vertical_alignment="center"
     )
 
-    with mock_columns_about[0]:
+    with mock_about_st.columns[0]:
         mock_about_st.image.assert_called_once_with(
             load_profile_image(), use_container_width=True, width=300
         )
