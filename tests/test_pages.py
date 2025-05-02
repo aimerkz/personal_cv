@@ -1,4 +1,4 @@
-from src.config import PROFILE_PIC, NAME, DESCRIPTION
+from src.config import NAME, DESCRIPTION, load_profile_image
 from src.pages.about import about_page
 from src.pages.projects import project_page
 from src.pages.work_history import work_history_page
@@ -40,7 +40,7 @@ def test_about_page(
 
     with mock_columns_about[0]:
         mock_about_st.image.assert_called_once_with(
-            PROFILE_PIC, use_container_width=True, width=300
+            load_profile_image(), use_container_width=True, width=300
         )
 
         mock_about_st.title.assert_called_once_with(NAME, anchor=False)
@@ -79,7 +79,6 @@ def test_contacts_page(
     mock_contacts_st,
     mock_contacts_page_attrs,
     mock_display_contacts_info,
-    mock_tg_bot,
     mock_show_contact_form,
 ):
     contacts_page()
