@@ -14,7 +14,7 @@ def app() -> AppTest:
     return app
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="session", autouse=True)
 def mock_tg_bot() -> TelegramBot:
     mock_bot = MagicMock()
     tg_bot = TelegramBot(bot=mock_bot, chat_id=123)
