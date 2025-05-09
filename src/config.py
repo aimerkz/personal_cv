@@ -34,7 +34,6 @@ SOCIAL_MEDIA_ICONS = {
 TELEGRAM_LINK = "https://t.me/aimerkulov96"
 
 
-@st.cache_data(max_entries=1, show_spinner=False)
 def load_profile_image():
     try:
         with Image.open(PROFILE_IMAGE) as img:
@@ -48,14 +47,15 @@ def load_profile_image():
     return Image.open(PROFILE_IMAGE)
 
 
+@st.cache_data(max_entries=1, show_spinner=False)
 def load_css(css_path):
     try:
-        with open(css_path, "r") as css_file:
+        with open(css_path, mode="r") as css_file:
             css_text = css_file.read()
         st.markdown(f"<style>{css_text}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
-        st.error("CSS file not found.")
+        st.error("CSS file not found")
         raise
-    except Exception as e:
+    except OSError as e:
         st.error(f"An error occurred while loading CSS: {e}")
         raise
