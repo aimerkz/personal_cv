@@ -1,8 +1,13 @@
+import telebot
+import pytest
+
 from src.config import NAME, DESCRIPTION, load_profile_image
 from src.pages.about import about_page
 from src.pages.projects import project_page
 from src.pages.work_history import work_history_page
 from src.pages.contacts import contacts_page
+
+from logic import assert_contacts_page
 
 
 def test_pages_exist(app):
@@ -75,22 +80,55 @@ def test_work_history_page(
     mock_display_work_history.assert_called_once()
 
 
-def test_contacts_page(
+def test_contacts_page_without_send_message(
     mock_contacts_st,
     mock_contacts_page_attrs,
     mock_display_contacts_info,
     mock_show_contact_form,
+    mock_not_send_bot_message,
 ):
     contacts_page()
-    assert (
-        mock_contacts_st.title.return_value
-        == mock_contacts_page_attrs.title.return_value
-    )
-    assert (
-        mock_contacts_st.write.return_value
-        == mock_contacts_page_attrs.write.return_value
-    )
-    assert (
-        mock_contacts_st.subheader.return_value
-        == mock_contacts_page_attrs.subheader.return_value
-    )
+
+    assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
+
+    mock_display_contacts_info.assert_called_once()
+    mock_show_contact_form.assert_called_once()
+    mock_not_send_bot_message.assert_not_called()
+
+
+def test_contacts_page_with_send_message(
+    mock_contacts_st,
+    mock_contacts_page_attrs,
+    mock_display_contacts_info,
+    mock_show_contact_form,
+    mock_send_bot_message,
+):
+    message = mock_contacts_st.session_state["message_data"]
+    success_flag = mock_contacts_st.success
+    contacts_page()
+
+    assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
+
+    mock_display_contacts_info.assert_called_once()
+    mock_show_contact_form.assert_called_once()
+    mock_send_bot_message.assert_called_once_with(message)
+    assert success_flag is not None
+
+
+def test_contacts_page_with_error_send_message(
+    mock_contacts_st,
+    mock_contacts_page_attrs,
+    mock_display_contacts_info,
+    mock_show_contact_form,
+    mock_send_bot_message_with_error,
+):
+    message = mock_contacts_st.session_state["message_data"]
+
+    with pytest.raises(telebot.apihelper.ApiException):
+        contacts_page()
+
+    assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
+
+    mock_display_contacts_info.assert_called_once()
+    mock_show_contact_form.assert_called_once()
+    mock_send_bot_message_with_error.assert_called_once_with(message)

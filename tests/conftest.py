@@ -3,6 +3,7 @@ from typing import Any
 
 from streamlit.testing.v1 import AppTest
 import pytest
+import telebot
 
 from src.bot import TelegramBot
 
@@ -14,11 +15,40 @@ def app() -> AppTest:
     return app
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session")
 def mock_tg_bot() -> TelegramBot:
     mock_bot = MagicMock()
     tg_bot = TelegramBot(bot=mock_bot, chat_id=123)
     return tg_bot
+
+
+@pytest.fixture
+def mock_send_bot_message_factory(mock_tg_bot: TelegramBot, mocker, mock_contacts_st):
+    def _mock_send_message(message: str, is_send: bool = False) -> MagicMock:
+        if is_send:
+            mock_contacts_st.session_state = {"message_data": message}
+            mock_contacts_st.success = "Message sent"
+        mock_send = mocker.patch("src.bot.tg_bot.send_message")
+        return mock_send
+
+    return _mock_send_message
+
+
+@pytest.fixture
+def mock_send_bot_message(mock_send_bot_message_factory) -> MagicMock:
+    return mock_send_bot_message_factory("message", True)
+
+
+@pytest.fixture
+def mock_not_send_bot_message(mock_send_bot_message_factory) -> MagicMock:
+    return mock_send_bot_message_factory("message")
+
+
+@pytest.fixture
+def mock_send_bot_message_with_error(mock_send_bot_message_factory) -> MagicMock:
+    mock_send = mock_send_bot_message_factory("message", True)
+    mock_send.side_effect = telebot.apihelper.ApiException("error", "send_message", {})
+    return mock_send
 
 
 @pytest.fixture
@@ -89,7 +119,7 @@ def mock_display_contacts_info(mock_display_func_factory) -> MagicMock:
 
 @pytest.fixture
 def mock_attrs_factory():
-    def _mock(target_mock: MagicMock, attrs: [dict[str, Any]]) -> MagicMock:
+    def _mock(target_mock: MagicMock, attrs: dict[str, Any]) -> MagicMock:
         for key, value in attrs.items():
             target_mock.key.return_value = value
         return target_mock
@@ -123,5 +153,5 @@ def mock_contacts_page_attrs(mock_attrs_factory, mock_contacts_st) -> MagicMock:
 
 
 @pytest.fixture
-def mock_show_contact_form(mocker) -> MagicMock:
-    return mocker.patch("src.pages.contacts.show_contact_form")
+def mock_show_contact_form(mock_display_func_factory) -> MagicMock:
+    return mock_display_func_factory("src.pages.contacts.show_contact_form")
