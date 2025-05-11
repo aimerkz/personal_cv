@@ -3,7 +3,7 @@ import re
 import streamlit as st
 
 
-def validate_phone(phone):
+def validate_phone(phone: str) -> None:
     if not re.match(r"^\+?[0-9]+$", phone):
         st.error("Incorrect number format.", icon="💬")
         st.stop()
@@ -15,24 +15,26 @@ def contact_form():
         telegram_login = st.text_input("Telegram Login")
         phone = st.text_input("Phone Number")
         message = st.text_area("Your Message")
-        submit_button = st.form_submit_button("Submit")
+        submit_button = st.form_submit_button(
+            label="Submit", help="Click to send message"
+        )
 
         if submit_button:
-            if not name:
+            if name is None:
                 st.error("Please provide your name.", icon="🧑")
                 st.stop()
 
-            if not telegram_login and not phone:
+            if telegram_login is None and phone is None:
                 st.error(
                     "Please provide your phone number or telegram login.", icon="📨"
                 )
                 st.stop()
 
-            if not message:
+            if message is None:
                 st.error("Please provide a message.", icon="💬")
                 st.stop()
 
-            if phone:
+            if phone is not None:
                 validate_phone(phone)
 
             message_data = f"Message from {name} - {telegram_login or phone}: {message}"
