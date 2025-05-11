@@ -118,6 +118,11 @@ def mock_display_contacts_info(mock_display_func_factory) -> MagicMock:
 
 
 @pytest.fixture
+def mock_show_contact_form(mock_display_func_factory) -> MagicMock:
+    return mock_display_func_factory("src.pages.contacts.show_contact_form")
+
+
+@pytest.fixture
 def mock_attrs_factory():
     def _mock(target_mock: MagicMock, attrs: dict[str, Any]) -> MagicMock:
         for key, value in attrs.items():
@@ -150,8 +155,3 @@ def mock_contacts_page_attrs(mock_attrs_factory, mock_contacts_st) -> MagicMock:
         mock_contacts_st,
         {"title": "Contacts", "write": "\n", "subheader": "Subheader"},
     )
-
-
-@pytest.fixture
-def mock_show_contact_form(mock_display_func_factory) -> MagicMock:
-    return mock_display_func_factory("src.pages.contacts.show_contact_form")

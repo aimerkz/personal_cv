@@ -17,7 +17,11 @@ def contacts_page() -> None:
 
     st.subheader("Also you can write to my bot in Telegram:")
 
-    if st.button("Send"):
+    if st.button(
+        label="Send",
+        key="send",
+        help="Open form to send messages",
+    ):
         show_contact_form()
 
     if "message_data" in st.session_state:
