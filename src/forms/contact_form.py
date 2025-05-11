@@ -20,21 +20,21 @@ def contact_form():
         )
 
         if submit_button:
-            if name is None:
+            if not name:
                 st.error("Please provide your name.", icon="🧑")
                 st.stop()
 
-            if telegram_login is None and phone is None:
+            if not telegram_login and not phone:
                 st.error(
                     "Please provide your phone number or telegram login.", icon="📨"
                 )
                 st.stop()
 
-            if message is None:
+            if not message:
                 st.error("Please provide a message.", icon="💬")
                 st.stop()
 
-            if phone is not None:
+            if phone:
                 validate_phone(phone)
 
             message_data = f"Message from {name} - {telegram_login or phone}: {message}"
