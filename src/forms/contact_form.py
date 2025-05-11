@@ -10,7 +10,7 @@ def validate_phone(phone: str) -> None:
 
 
 def contact_form():
-    with st.form("contact_form", clear_on_submit=True):
+    with st.form("contact_form", clear_on_submit=False):
         name = st.text_input("First Name")
         telegram_login = st.text_input("Telegram Login")
         phone = st.text_input("Phone Number")
