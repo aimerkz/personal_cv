@@ -99,19 +99,26 @@ def get_qr_code():
     st.image(img, width=300, caption="Scan the code")
 
 
-def get_contacts_info():
-    col = st.columns(1)[0]
-    links = " | ".join(
-        f"[{platform} {SOCIAL_MEDIA_ICONS[platform]}]({link})"
-        for platform, link in SOCIAL_MEDIA.items()
-    )
-    col.markdown(links, unsafe_allow_html=True)
+@st.cache_data(max_entries=1, show_spinner=False)
+def _get_social_media_links() -> None:
+    cols = st.columns(len(SOCIAL_MEDIA))
 
-    if "show_content" not in st.session_state:
-        st.session_state.show_content = False
+    for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
+        with col:
+            st.link_button(
+                label=f"{SOCIAL_MEDIA_ICONS[platform]} {platform}",
+                url=link,
+                use_container_width=True,
+                help=f"My {platform} profile",
+            )
 
-    if st.button("Get Telegram QR Code"):
-        st.session_state.show_content = not st.session_state.show_content
 
-    if st.session_state.show_content:
+def get_contacts_info() -> None:
+    _get_social_media_links()
+
+    if st.toggle(
+        label="Telegram QR code",
+        key="show_qr_code",
+        help="Click to get a QR code",
+    ):
         get_qr_code()

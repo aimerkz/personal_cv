@@ -13,7 +13,6 @@ def show_contact_form():
 def contacts_page() -> None:
     st.title("Contacts")
     get_contacts_info()
-    st.write("\n")
 
     st.subheader("Also you can write to my bot in Telegram:")
 
