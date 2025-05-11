@@ -99,7 +99,6 @@ def test_contacts_page_with_send_message(
     mock_send_bot_message,
 ):
     message = mock_contacts_st.session_state["message_data"]
-    success_flag = mock_contacts_st.success
     contacts_page()
 
     assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
@@ -107,7 +106,7 @@ def test_contacts_page_with_send_message(
     mock_display_contacts_info.assert_called_once()
     mock_show_contact_form.assert_called_once()
     mock_send_bot_message.assert_called_once_with(message)
-    assert success_flag is not None
+    assert mock_contacts_st.success is not None
 
 
 def test_contacts_page_with_error_send_message(
@@ -118,6 +117,7 @@ def test_contacts_page_with_error_send_message(
     mock_send_bot_message_with_error,
 ):
     message = mock_contacts_st.session_state["message_data"]
+    mock_contacts_st.success = None
 
     with pytest.raises(telebot.apihelper.ApiException):
         contacts_page()
@@ -127,6 +127,7 @@ def test_contacts_page_with_error_send_message(
     mock_display_contacts_info.assert_called_once()
     mock_show_contact_form.assert_called_once()
     mock_send_bot_message_with_error.assert_called_once_with(message)
+    assert mock_contacts_st.success is None
 
 
 def test_contacts_page_without_contact_form(
@@ -137,6 +138,7 @@ def test_contacts_page_without_contact_form(
     mock_not_send_bot_message,
 ):
     mock_contacts_st.button.return_value = False
+    mock_contacts_st.success = None
     contacts_page()
 
     assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
@@ -144,3 +146,4 @@ def test_contacts_page_without_contact_form(
     mock_display_contacts_info.assert_called_once()
     mock_show_contact_form.assert_not_called()
     mock_not_send_bot_message.assert_not_called()
+    assert mock_contacts_st.success is None
