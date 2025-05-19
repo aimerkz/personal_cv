@@ -4,6 +4,10 @@ from src.bot import tg_bot
 from src.forms.contact_form import contact_form
 from src.utils import get_contacts_info
 
+import gettext
+
+_ = gettext.gettext
+
 
 @st.dialog("Contact Me")
 def show_contact_form():
@@ -11,15 +15,15 @@ def show_contact_form():
 
 
 def contacts_page() -> None:
-    st.title("Contacts")
+    st.title(_("Contacts"))
     get_contacts_info()
 
-    st.subheader("Also you can write to my bot in Telegram:")
+    st.subheader(_("Also you can write to my bot in Telegram:"))
 
     if st.button(
-        label="Send",
+        label=_("Send"),
         key="send",
-        help="Open form to send messages",
+        help=_("Open form to send messages"),
     ):
         show_contact_form()
 

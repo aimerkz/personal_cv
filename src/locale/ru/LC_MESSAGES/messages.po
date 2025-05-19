@@ -1,0 +1,201 @@
+# Russian translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  aimerkulov <aimerkulov@aimerkulov-nino-203-2-14-i5-1235u>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-19 13:20+0300\n"
+"PO-Revision-Date: 2025-05-19 13:24+0300\n"
+"Last-Translator:  aimerkulov <aimerkulov@aimerkulov-nino-203-2-14-i5-1235u>\n"
+"Language-Team: Russian <gnu@d07.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: app.py:13
+msgid "About Me"
+msgstr "Обо мне"
+
+#: app.py:16
+msgid "Work history"
+msgstr "Опыт работы"
+
+#: app.py:18 src/pages/contacts.py:14
+msgid "Contacts"
+msgstr "Контакты"
+
+#: app.py:19 src/pages/projects.py:7
+msgid "My projects"
+msgstr "Мои проекты"
+
+#: app.py:22
+msgid "Home"
+msgstr "Домашний раздел"
+
+#: app.py:23
+msgid "Info"
+msgstr "Информация"
+
+#: app.py:24
+msgid "Projects"
+msgstr "Мои проекты"
+
+#: app.py:31
+msgid "by Artem Merkulov"
+msgstr "Сделал Артем Меркулов"
+
+#: src/utils.py:20
+msgid "Hard Skills"
+msgstr "Хард скиллы"
+
+#: src/utils.py:23
+msgid "Programming"
+msgstr "Языки программирования"
+
+#: src/utils.py:23
+msgid "minimal base"
+msgstr "базовый"
+
+#: src/utils.py:24
+msgid "Frameworks and ORMs"
+msgstr "Фреймворки и ОРМ"
+
+#: src/utils.py:26
+msgid "Databases"
+msgstr "Базы данных"
+
+#: src/utils.py:27
+msgid "Tests"
+msgstr "Тестирование"
+
+#: src/utils.py:28
+msgid "OS and instruments"
+msgstr "ОС и инструменты"
+
+#: src/utils.py:30
+msgid "Infrastructure"
+msgstr "Инфраструктура"
+
+#: src/utils.py:31
+msgid "Others"
+msgstr "Прочее"
+
+#: src/utils.py:56
+msgid "Education"
+msgstr "Образование"
+
+#: src/utils.py:63
+msgid "Courses and Certifications"
+msgstr "Курсы и сертификаты"
+
+#: src/utils.py:79
+msgid "**Role:**"
+msgstr "**Роль:**"
+
+#: src/utils.py:84
+msgid "**Responsibilities:**"
+msgstr "**Обязанности:**"
+
+#: src/utils.py:95
+msgid "**Technologies:**"
+msgstr "**Технологии:**"
+
+#: src/utils.py:118
+msgid "Scan the code"
+msgstr "Сканируй код"
+
+#: src/utils.py:131
+msgid "My {platform} profile"
+msgstr"Мой профиль на {platform}"
+
+#: src/utils.py:144
+msgid "Telegram QR code"
+msgstr "Телеграм qr код"
+
+#: src/utils.py:146
+msgid "Click to get a QR code"
+msgstr "Нажми, чтобы получить qr код"
+
+#: src/bot.py:34
+msgid "Error sending message"
+msgstr "Ошибка отправки сообщения"
+
+#: src/bot.py:36
+msgid "Message sent!"
+msgstr "Сообщение отправлено!"
+
+#: src/forms/contact_form.py:8
+msgid "Incorrect number format."
+msgstr "Некорректный формат номера"
+
+#: src/forms/contact_form.py:14
+msgid "First Name"
+msgstr "Имя"
+
+#: src/forms/contact_form.py:15
+msgid "Telegram Login"
+msgstr "Логин в телеграме"
+
+#: src/forms/contact_form.py:16
+msgid "Phone Number"
+msgstr "Номер телефона"
+
+#: src/forms/contact_form.py:17
+msgid "Your Message"
+msgstr "Твое сообщение"
+
+#: src/forms/contact_form.py:19
+msgid "Submit"
+msgstr "Отправить"
+
+#: src/forms/contact_form.py:19
+msgid "Click to send message"
+msgstr "Нажми, чтобы отправить сообщение"
+
+#: src/forms/contact_form.py:24
+msgid "Please provide your name."
+msgstr "Пожалуйста, укажи свое имя"
+
+#: src/forms/contact_form.py:29
+msgid "Please provide your phone number or telegram login."
+msgstr "Пожалуйста, укажи номер телефона или логин в телеграме"
+
+#: src/forms/contact_form.py:34
+msgid "Please provide a message."
+msgstr "Пожалуйста, напиши сообщение"
+
+#: src/forms/contact_form.py:40
+msgid "Message from"
+msgstr "Сообщение от"
+
+#: src/pages/about.py:14
+#, python-format
+msgid "Artem Merkulov"
+msgstr "Артем Меркулов"
+
+#: src/pages/about.py:16
+#, python-format
+msgid "Full time work, 100% remotely"
+msgstr "Полный рабочий день, только удаленка"
+
+#: src/pages/contacts.py:17
+msgid "Also you can write to my bot in Telegram:"
+msgstr "Также ты можешь написать моему боту в телеграм"
+
+#: src/pages/contacts.py:20
+msgid "Send"
+msgstr "Отправить"
+
+#: src/pages/contacts.py:22
+msgid "Open form to send messages"
+msgstr "Открыть форму для отправки сообщения"
+
+#: src/pages/work_history.py:7
+msgid "Work History"
+msgstr "Опыт работы"
