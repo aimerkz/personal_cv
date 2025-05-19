@@ -1,6 +1,11 @@
 import streamlit as st
 import telebot
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.types import _
+
 
 @st.cache_resource(ttl=None, show_spinner=False)
 def get_tg_bot() -> telebot.TeleBot:
@@ -30,10 +35,10 @@ class TelegramBot:
     def send_message(self, message: str) -> None:
         try:
             self.bot.send_message(chat_id=self.chat_id, text=message)
-        except telebot.apihelper.ApiException as e:
-            st.error(f"Error sending message: {e}")
+        except telebot.apihelper.ApiException:
+            st.error(_("Error sending message"))
         else:
-            st.success("Message sent!")
+            st.success(_("Message sent!"))
 
 
 tg_bot = TelegramBot()

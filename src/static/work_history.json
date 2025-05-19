@@ -1,81 +1,185 @@
 {
   "work_history": [
     {
-      "company": "Basis",
+      "company": {
+        "en": "Basis",
+        "ru": "Базис"
+      },
       "link": "https://basistech.ru/",
-      "role": "Python Backend Developer",
-      "period": "02/2025 - Present",
-      "responsibilities": [
-        "Rest API developments in DRF and Litestar",
-        "Optimizing methods using asyncio",
-        "Test coverage by python unittest"
-      ]
+      "role": {
+        "en": "Python Backend Developer",
+        "ru": "Python Backend разработчик"
+      },
+      "period": {
+        "en": "02/2025 - Present",
+        "ru": "02/2025 - Настоящее время"
+      },
+      "responsibilities": {
+        "en": [
+          "Rest API developments in DRF and Litestar",
+          "Adding websockets using django-channels and implementing a mechanism for sending events between services",
+          "Optimizing methods using asyncio",
+          "Test coverage by pytest"
+        ],
+        "ru": [
+          "Разработка REST API на DRF и Litestar",
+          "Добавление вэбсокетов с использованием django-channels и реализация механизма отправки событий между сервисами",
+          "Оптимизация методов с использованием asyncio",
+          "Покрытие тестами с помощью pytest"
+        ]
+      }
     },
     {
-      "company": "STC (Special Technology Control)",
+      "company": {
+        "en": "STC (Special Technology Control)",
+        "ru": "Специальные технологии контроля"
+      },
       "link": "https://www.stc-groups.ru/",
-      "role": "Python Backend Developer (outstaffing)",
-      "period": "10/2024 - 02/2025",
-      "responsibilities": [
-        "Rest API developments in Flask",
-        "Organizing background tasks using Flask-APScheduler",
-        "Integration with the 2GIS API to build a route using transmitted coordinates",
-        "Parsing data from xlsx, csv, json, geojson using pandas",
-        "Optimizing methods using multiprocessing and threading",
-        "Test coverage by python unittest",
-        "Global code refactoring",
-        "Writing Dockerfile and docker-compose.yml, using multistage",
-        "Basic nginx configuration",
-        "Deploying changes to test and prod servers"
-      ]
+      "role": {
+        "en": "Python Backend Developer (outstaffing)",
+        "ru": "Python Backend разработчик (аутстаффинг)"
+      },
+      "period": {
+        "en": "10/2024 - 02/2025",
+        "ru": "10/2024 - 02/2025"
+      },
+      "responsibilities": {
+        "en": [
+          "Rest API developments in Flask",
+          "Organizing background tasks using Flask-APScheduler",
+          "Integration with the 2GIS API to build a route using transmitted coordinates",
+          "Parsing data from xlsx, csv, json, geojson using pandas",
+          "Optimizing methods using multiprocessing and threading",
+          "Test coverage by python unittest",
+          "Global code refactoring",
+          "Writing Dockerfile and docker-compose.yml, using multistage",
+          "Basic nginx configuration",
+          "Deploying changes to test and prod servers"
+        ],
+        "ru": [
+          "Разработка REST API на Flask",
+          "Организация фоновых задач с использованием Flask-APScheduler",
+          "Интеграция с API 2GIS для построения маршрута по переданным координатам",
+          "Парсинг данных из xlsx, csv, json, geojson с использованием pandas",
+          "Оптимизация методов с использованием multiprocessing и threading",
+          "Тестовое покрытие с помощью python unittest",
+          "Глобальный рефакторинг кода",
+          "Написание Dockerfile и docker-compose.yml с использованием multistage",
+          "Базовая настройка nginx",
+          "Деплой изменений на тестовые и продакшен серверы"
+        ]
+      }
     },
     {
-      "company": "Spider Group",
+      "company": {
+        "en": "Spider Group",
+        "ru": "Спайдер Групп"
+      },
       "link": "https://spider.ru/",
-      "role": "Software engineer",
-      "period": "05/2024 - 02/2025",
-      "responsibilities": [
-        "Improved backend of an online store using FastApi and DRF + Redis",
-        "Implemented SMS authentication (Integration with API SIGMA messaging) and PyJWT-based authorization",
-        "Integration with API Tinkoff and Youkassa for making payments",
-        "Configured full-text search using Sphinx",
-        "Developed APIs for routine tasks",
-        "Wrote raw SQL queries and worked with Django ORM",
-        "Supported and optimized local development",
-        "Conducted code reviews and refactoring"
-      ]
+      "role": {
+        "en": "Software engineer",
+        "ru": "Инженер-программист"
+      },
+      "period": {
+        "en": "05/2024 - 02/2025",
+        "ru": "05/2024 - 02/2025"
+      },
+      "responsibilities": {
+        "en": [
+          "Improved backend of an online store using FastApi and DRF + Redis",
+          "Implemented SMS authentication (Integration with API SIGMA messaging) and PyJWT-based authorization",
+          "Integration with API Tinkoff and Youkassa for making payments",
+          "Configured full-text search using Sphinx",
+          "Developed APIs for routine tasks",
+          "Wrote raw SQL queries and worked with Django ORM",
+          "Supported and optimized local development",
+          "Conducted code reviews and refactoring"
+        ],
+        "ru": [
+          "Разработка бэкенда интернет-магазина на FastApi и DRF + Redis",
+          "Реализация SMS-аутентификации (интеграция с API SIGMA messaging) и авторизации на основе PyJWT",
+          "Интеграция с API Тинькофф и Юkassa для приема платежей",
+          "Настройка полнотекстового поиска с использованием Sphinx",
+          "Разработка API для рутинных задач",
+          "Написание raw SQL запросов и работа с Django ORM",
+          "Поддержка и оптимизация локальной разработки",
+          "Проведение код-ревью и рефакторинга"
+        ]
+      }
     },
     {
-      "company": "Napoleon IT",
+      "company": {
+        "en": "Napoleon IT",
+        "ru": "Наполеон Айти"
+      },
       "link": "https://napoleonit.ru/",
-      "role": "Backend Python Developer",
-      "period": "06/2023 - 07/2024",
-      "responsibilities": [
-        "Developed backend platform on FastApi for business process automation at Gloria Jeans",
-        "Implemented and supported sections for store planning",
-        "Developed APIs for routine tasks",
-        "Developed calculation methods using Pandas and Numpy",
-        "Wrote GraphQL queries",
-        "Wrote tests using pytest and pytest_mock",
-        "Supported and optimized local development",
-        "Developed backend platform on DRF + Celery + Redis for Lenta",
-        "Handled data import and export using openpyxl",
-        "Covered code with tests using pytest and factory_boy",
-        "Conducted code reviews and refactoring",
-        "Developed a parser for md and yml templates using re, argparse, yaml, BeautifulSoup4"
-      ]
+      "role": {
+        "en": "Backend Python Developer",
+        "ru": "Backend Python разработчик"
+      },
+      "period": {
+        "en": "06/2023 - 07/2024",
+        "ru": "06/2023 - 07/2024"
+      },
+      "responsibilities": {
+        "en": [
+          "Developed backend platform on FastApi for business process automation at Gloria Jeans",
+          "Implemented and supported sections for store planning",
+          "Developed APIs for routine tasks",
+          "Developed calculation methods using Pandas and Numpy",
+          "Wrote GraphQL queries",
+          "Wrote tests using pytest and pytest_mock",
+          "Supported and optimized local development",
+          "Developed backend platform on DRF + Celery + Redis for Lenta",
+          "Handled data import and export using openpyxl",
+          "Covered code with tests using pytest and factory_boy",
+          "Conducted code reviews and refactoring",
+          "Developed a parser for md and yml templates using re, argparse, yaml, BeautifulSoup4"
+        ],
+        "ru": [
+          "Разработка бэкенд-платформы на FastApi для автоматизации бизнес-процессов Gloria Jeans",
+          "Реализация и поддержка разделов для планирования магазинов",
+          "Разработка API для рутинных задач",
+          "Разработка методов расчетов с использованием Pandas и Numpy",
+          "Написание GraphQL запросов",
+          "Написание тестов с использованием pytest и pytest_mock",
+          "Поддержка и оптимизация локальной разработки",
+          "Разработка бэкенд-платформы на DRF + Celery + Redis для Ленты",
+          "Обработка импорта и экспорта данных с использованием openpyxl",
+          "Тестовое покрытие кода с использованием pytest и factory_boy",
+          "Проведение код-ревью и рефакторинга",
+          "Разработка парсера для шаблонов md и yml с использованием re, argparse, yaml, BeautifulSoup4"
+        ]
+      }
     },
     {
-      "company": "High Technologies and Strategic Systems",
+      "company": {
+        "en": "K-Technologies",
+        "ru": "К-Технологии"
+      },
       "link": "https://www.k-tech.ru/",
-      "role": "Programmer",
-      "period": "04/2022 - 06/2023",
-      "responsibilities": [
-        "Developed REST API using Django and DRF",
-        "Covered code with tests using python unittest",
-        "Created packages using setuptools",
-        "Conducted code reviews and refactoring"
-      ]
+      "role": {
+        "en": "Programmer",
+        "ru": "Программист"
+      },
+      "period": {
+        "en": "04/2022 - 06/2023",
+        "ru": "04/2022 - 06/2023"
+      },
+      "responsibilities": {
+        "en": [
+          "Developed REST API using Django and DRF",
+          "Covered code with tests using python unittest",
+          "Created packages using setuptools",
+          "Conducted code reviews and refactoring"
+        ],
+        "ru": [
+          "Разработка REST API на Django и DRF",
+          "Покрытие тестами с использованием python unittest",
+          "Создание пакетов с использованием setuptools",
+          "Проведение код-ревью и рефакторинга"
+        ]
+      }
     }
   ]
 }

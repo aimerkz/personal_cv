@@ -1,7 +1,10 @@
 import streamlit as st
 
-from src.config import DESCRIPTION, NAME, load_profile_image
+from src.config import DESCRIPTION, load_profile_image
 from src.utils import display_ed, get_hard_skills
+import gettext
+
+_ = gettext.gettext
 
 
 def about_page() -> None:
@@ -11,9 +14,9 @@ def about_page() -> None:
         st.image(profile_image, use_container_width=True, width=300)
 
     with col2:
-        st.title(NAME, anchor=False)
+        st.title(_("Artem Merkulov"), anchor=False)
         st.write(DESCRIPTION)
-        st.write("Full time work, 100% remotely")
+        st.write(_("Full time work, 100% remotely"))
 
     get_hard_skills()
     display_ed()

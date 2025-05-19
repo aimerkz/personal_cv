@@ -14,25 +14,91 @@ from src.config import (
     WORK_DIR,
 )
 
+import gettext
 
-@st.cache_data(max_entries=1, show_spinner=False)
+_ = gettext.gettext
+
+
 def get_hard_skills():
-    st.subheader("Hard Skills")
-    st.write(
-        """
-    - 👩‍💻 Programming: Python, Go (minimal base), SQL
-    - 💻 Frameworks and ORMs: Django + Django ORM, DRF, FastAPI, Flask, Litestar, aiogram, Piccolo ORM
-    - 🗄️ Databases: Postgres, MySQL, Redis
-    - 🎲 Tests: unittest, pytest, pytest_mock, factory_boy
-    - ⌨️ OS and instruments: Ubuntu, Pycharm, Jira, Confluence, GitHub, Gitlab
-    - 💾 Infrastructure: Docker, docker-compose, nginx
-    - 🔎 Others: Celery, Flower, Sphinx, GraphQL, asyncio, re, argparse, BeautifulSoup4, openpyxl, 
-                 poetry, pandas, numpy, setuptools, streamlit, pydantic, marshmallow
-    """
+    st.subheader(_("Hard Skills"))
+
+    skills_data = [
+        {
+            "icon": "👩‍💻",
+            "category": _("Programming"),
+            "items": ["Python", "Go ({})".format(_("minimal base")), "SQL"],
+        },
+        {
+            "icon": "💻",
+            "category": _("Frameworks and ORMs"),
+            "items": [
+                "Django + Django ORM",
+                "DRF",
+                "FastAPI",
+                "Flask",
+                "Litestar",
+                "aiogram",
+                "Piccolo ORM",
+            ],
+        },
+        {
+            "icon": "🗄️",
+            "category": _("Databases"),
+            "items": ["Postgres", "MySQL", "Redis"],
+        },
+        {
+            "icon": "🎲",
+            "category": _("Tests"),
+            "items": ["unittest", "pytest", "pytest_mock", "factory_boy"],
+        },
+        {
+            "icon": "⌨️",
+            "category": _("OS and instruments"),
+            "items": ["Ubuntu", "Pycharm", "Jira", "Confluence", "GitHub", "Gitlab"],
+        },
+        {
+            "icon": "💾",
+            "category": _("Infrastructure"),
+            "items": ["Docker", "docker-compose", "nginx"],
+        },
+        {
+            "icon": "🔎",
+            "category": _("Others"),
+            "items": [
+                "Celery",
+                "Flower",
+                "Sphinx",
+                "GraphQL",
+                "asyncio",
+                "re",
+                "argparse",
+                "BeautifulSoup4",
+                "openpyxl",
+                "poetry",
+                "uv",
+                "pandas",
+                "numpy",
+                "setuptools",
+                "streamlit",
+                "pydantic",
+                "marshmallow",
+            ],
+        },
+    ]
+
+    result = "\n".join(
+        f"- {item['icon']} {item['category']}: {', '.join(item['items'])}"
+        for item in skills_data
     )
 
+    st.write(result)
 
-@st.cache_data(max_entries=1, show_spinner=False)
+
+@st.cache_data(
+    max_entries=2,
+    show_spinner=False,
+    hash_funcs={"_": lambda _: st.session_state.get("lang_code", "en")},
+)
 def load_data(file_dir: str):
     with open(file_dir, "r", encoding="utf-8") as file:
         return json.load(file)
@@ -40,44 +106,49 @@ def load_data(file_dir: str):
 
 def display_ed():
     data = load_data(ED_DIR)
-    st.header("Education")
+    st.header(_("Education"))
+    current_lang = st.session_state.get("lang_code", "en")
 
     for item in data["education"]:
         st.write(
-            f"**{item['degree']} ({item['year']}):** {item['university']}, {item['field']}"
+            f"**{item['degree'][current_lang]} ({item['year']}):** "
+            f"{item['university'][current_lang]}, {item['field'][current_lang]}"
         )
 
-    st.header("Courses and Certifications")
+    st.header(_("Courses and Certifications"))
     for item in data["courses"]:
         st.write(
-            f"**{item['course']} ({item['year']}):** [{item['field']}]({item['link']})"
+            f"**{item['course']} ({item['year']}):** [{item['field'][current_lang]}]({item['link']})"
         )
 
 
 def display_work_history():
     data = load_data(WORK_DIR)
+    current_lang = st.session_state.get("lang_code", "en")
 
     for job in data["work_history"]:
-        st.subheader(f":briefcase: [{job['company']}]({job['link']})")
-        st.write(f"{job['period']}")
-        st.write(f"**Role:** {job['role']}")
-        st.write("**Responsibilities:**")
-        for responsibility in job["responsibilities"]:
+        st.subheader(f":briefcase: [{job['company'][current_lang]}]({job['link']})")
+        st.write(f"{job['period'][current_lang]}")
+
+        st.write("{} {}".format(_("**Role:**"), job["role"][current_lang]))
+
+        st.write(_("**Responsibilities:**"))
+        for responsibility in job["responsibilities"][current_lang]:
             st.write(f" - ► {responsibility}")
 
 
 def display_projects():
     data = load_data(PROJECTS_DIR)
+    current_lang = st.session_state.get("lang_code", "en")
 
     for project in data["projects"]:
-        st.subheader(f":package: [{project['name']}]({project['link']})")
-        st.write(f"{project['description']}")
-        st.write("**Technologies:**")
+        st.subheader(f":package: [{project['name'][current_lang]}]({project['link']})")
+        st.write(f"{project['description'][current_lang]}")
+        st.write(_("**Technologies:**"))
         for technology in project["technologies"]:
             st.write(f" - ► {technology}")
 
 
-@st.cache_data(persist=True, max_entries=1, show_spinner=False)
 def get_qr_code():
     qr = qrcode.QRCode(
         version=1,
@@ -96,10 +167,9 @@ def get_qr_code():
     buf.seek(0)
     img = Image.open(buf)
 
-    st.image(img, width=300, caption="Scan the code")
+    st.image(img, width=300, caption=_("Scan the code"))
 
 
-@st.cache_data(max_entries=1, show_spinner=False)
 def _get_social_media_links() -> None:
     cols = st.columns(len(SOCIAL_MEDIA))
 
@@ -109,7 +179,7 @@ def _get_social_media_links() -> None:
                 label=f"{SOCIAL_MEDIA_ICONS[platform]} {platform}",
                 url=link,
                 use_container_width=True,
-                help=f"My {platform} profile",
+                help=_("My {platform} profile").format(platform=platform),
             )
 
 
@@ -117,8 +187,8 @@ def get_contacts_info() -> None:
     _get_social_media_links()
 
     if st.toggle(
-        label="Telegram QR code",
+        label=_("Telegram QR code"),
         key="show_qr_code",
-        help="Click to get a QR code",
+        help=_("Click to get a QR code"),
     ):
         get_qr_code()

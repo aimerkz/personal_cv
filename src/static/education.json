@@ -1,53 +1,89 @@
 {
   "education": [
     {
-      "degree": "Master's Degree",
+      "degree": {
+        "en": "Master's Degree",
+        "ru": "Магистратура"
+      },
       "year": 2021,
-      "university": "Kaluga State University named after K. E. Tsiolkovsky",
-      "field": "Russian as a Foreign Language"
+      "university": {
+        "en": "Kaluga State University named after K. E. Tsiolkovsky",
+        "ru": "Калужский государственный университет им. К.Э. Циолковского"
+      },
+      "field": {
+        "en": "Russian as a Foreign Language",
+        "ru": "Русский язык как иностранный"
+      }
     },
     {
-      "degree": "Bachelor's Degree",
+      "degree": {
+        "en": "Bachelor's Degree",
+        "ru": "Бакалавр"
+      },
       "year": 2018,
-      "university": "Kaluga State University named after K. E. Tsiolkovsky",
-      "field": "Russian Language and Literature"
+      "university": {
+        "en": "Kaluga State University named after K. E. Tsiolkovsky",
+        "ru": "Калужский государственный университет им. К.Э. Циолковского"
+      },
+      "field": {
+        "en": "Russian Language and Literature",
+        "ru": "Русский язык и литература"
+      }
     }
   ],
   "courses": [
     {
       "course": "Yandex Practicum",
       "year": 2022,
-      "field": "Python Backend Developer",
+      "field": {
+        "en": "Python Backend Developer",
+        "ru": "Python бэкенд разработчик"
+      },
       "link": "https://disk.yandex.ru/i/k37WB90TtrO25w"
     },
     {
       "course": "Stepik",
       "year": 2022,
-      "field": "Basics of Python",
+      "field": {
+        "en": "Basics of Python",
+        "ru": "Основы Python"
+      },
       "link": "https://stepik.org/cert/1524869/"
     },
     {
       "course": "Stepik",
       "year": 2022,
-      "field": "Basics of SQLs",
+      "field": {
+        "en": "Basics of SQLs",
+        "ru": "Основы SQL"
+      },
       "link": "https://stepik.org/cert/1510217/"
     },
     {
       "course": "Stepik",
       "year": 2022,
-      "field": "Introduction to Databases",
+      "field": {
+        "en": "Introduction to Databases",
+        "ru": "Введение в базы данных"
+      },
       "link": "https://stepik.org/cert/1665589/"
     },
     {
       "course": "GeekBrains",
       "year": 2022,
-      "field": "Basic Git Course",
+      "field": {
+        "en": "Basic Git Course",
+        "ru": "Git Базовый курс"
+      },
       "link": "https://habrastorage.org/getpro/moikrug/uploads/additional_education/000/074/638/diploma/1b6556f405a24485b846270b8fb7b5ab.png"
     },
     {
       "course": "Stepik",
       "year": 2024,
-      "field": "Programming in Golang",
+      "field": {
+        "en": "Programming in Golang",
+        "ru": "Программирование на Golang"
+      },
       "link": "https://stepik.org/cert/2686843/"
     }
   ]

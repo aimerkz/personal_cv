@@ -1,15 +1,27 @@
 {
   "projects": [
     {
-      "name": "Telegram Bot with ChatGPT and Image Generator",
+      "name": {
+        "en": "Telegram Bot with ChatGPT and Image Generator",
+        "ru": "Telegram Бот с ChatGPT и генерацией изображений"
+      },
       "link": "https://t.me/merk_api_bot",
-      "description": "This bot uses ChatGPT to answer questions and supports full-fledged dialogues. It can also generate 1 to 3 images based on a text description.",
+      "description": {
+        "en": "This bot uses ChatGPT to answer questions and supports full-fledged dialogues. It can also generate 1 to 3 images based on a text description.",
+        "ru": "Этот бот использует ChatGPT для ответов на вопросы и поддерживает полноценные диалоги.\nТакже он умеет генерировать от 1 до 3 изображений по текстовому описанию."
+      },
       "technologies": ["Python 3.12", "Aiogram", "Openai", "Docker"]
     },
     {
-      "name": "Personal resume website",
+      "name": {
+        "en": "Personal resume website",
+        "ru": "Персональный сайт-резюме"
+      },
       "link": "https://amerkulovcv.streamlit.app/",
-      "description": "A site that is my resume for potential employers and anyone interested.",
+      "description": {
+        "en": "A site that is my resume for potential employers and anyone interested.",
+        "ru": "Сайт, который представляет собой мое резюме для потенциальных работодателей и всех заинтересованных."
+      },
       "technologies": ["Python 3.12", "Streamlit"]
     }
   ]

@@ -1,7 +1,7 @@
 import telebot
 import pytest
 
-from src.config import NAME, DESCRIPTION, load_profile_image
+from src.config import DESCRIPTION, load_profile_image
 from src.pages.about import about_page
 from src.pages.projects import project_page
 from src.pages.work_history import work_history_page
@@ -43,7 +43,7 @@ def test_about_page(
             load_profile_image(), use_container_width=True, width=300
         )
 
-        mock_about_st.title.assert_called_once_with(NAME, anchor=False)
+        mock_about_st.title.assert_called_once_with("Artem Merkulov", anchor=False)
         assert mock_about_st.write.call_count == 2
         calls = [args[0] for args, _ in mock_about_st.write.call_args_list]
         assert DESCRIPTION in calls
