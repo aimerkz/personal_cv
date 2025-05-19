@@ -13,7 +13,6 @@ WORK_DIR = CURRENT_DIR / "static" / "work_history.json"
 PROJECTS_DIR = CURRENT_DIR / "static" / "projects.json"
 
 PAGE_ICON = ":coffee:"
-DESCRIPTION = "Python Backend Developer"
 EMAIL = "artem-merk96@yandex.ru"
 
 SOCIAL_MEDIA = {

@@ -183,8 +183,15 @@ msgid "Artem Merkulov"
 msgstr ""
 
 #: src/pages/about.py:16
-#, python-format
 msgid "Full time work, 100% remotely"
+msgstr ""
+
+#: src/pages/about.py:19
+msgid "Python Backend Developer"
+msgstr ""
+
+#: src/pages/contacts.py:13
+msgid "Contact Me"
 msgstr ""
 
 #: src/pages/contacts.py:17

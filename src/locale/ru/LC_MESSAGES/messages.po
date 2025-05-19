@@ -184,6 +184,14 @@ msgstr "Артем Меркулов"
 msgid "Full time work, 100% remotely"
 msgstr "Полный рабочий день, только удаленка"
 
+#: src/pages/about.py:19
+msgid "Python Backend Developer"
+msgstr "Python бэкенд разработчик"
+
+#: src/pages/contacts.py:13
+msgid "Contact Me"
+msgstr "Связь со мной"
+
 #: src/pages/contacts.py:17
 msgid "Also you can write to my bot in Telegram:"
 msgstr "Также ты можешь написать моему боту в телеграм"
