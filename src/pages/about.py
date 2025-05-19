@@ -2,9 +2,10 @@ import streamlit as st
 
 from src.config import DESCRIPTION, load_profile_image
 from src.utils import display_ed, get_hard_skills
-import gettext
+from typing import TYPE_CHECKING
 
-_ = gettext.gettext
+if TYPE_CHECKING:
+    from src.types import _
 
 
 def about_page() -> None:

@@ -4,9 +4,10 @@ from src.bot import tg_bot
 from src.forms.contact_form import contact_form
 from src.utils import get_contacts_info
 
-import gettext
+from typing import TYPE_CHECKING
 
-_ = gettext.gettext
+if TYPE_CHECKING:
+    from src.types import _
 
 
 @st.dialog("Contact Me")

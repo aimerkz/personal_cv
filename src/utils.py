@@ -14,9 +14,10 @@ from src.config import (
     WORK_DIR,
 )
 
-import gettext
+from typing import TYPE_CHECKING
 
-_ = gettext.gettext
+if TYPE_CHECKING:
+    from src.types import _
 
 
 def get_hard_skills():
