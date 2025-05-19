@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from src.types import _
 
 
-@st.dialog("Contact Me")
+@st.dialog(_("Contact Me"))
 def show_contact_form():
     contact_form()
 

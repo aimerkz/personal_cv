@@ -1,7 +1,7 @@
 import telebot
 import pytest
 
-from src.config import DESCRIPTION, load_profile_image
+from src.config import load_profile_image
 from src import pages
 
 from logic import assert_contacts_page
@@ -43,7 +43,7 @@ def test_about_page(
         mock_about_st.title.assert_called_once_with("Artem Merkulov", anchor=False)
         assert mock_about_st.write.call_count == 2
         calls = [args[0] for args, _ in mock_about_st.write.call_args_list]
-        assert DESCRIPTION in calls
+        assert "Python Backend Developer" in calls
         assert "Full time work, 100% remotely" in calls
 
     mock_get_hard_skills.assert_called_once()
