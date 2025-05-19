@@ -4,8 +4,17 @@ from typing import Any
 from streamlit.testing.v1 import AppTest
 import pytest
 import telebot
+import gettext
 
 from src.bot import TelegramBot
+
+
+@pytest.fixture(scope="session", autouse=True)
+def mock_localizer():
+    translation = gettext.translation(
+        domain="messages", localedir="src/locale", languages=["en"], fallback=True
+    )
+    translation.install("gettext")
 
 
 @pytest.fixture(scope="session")

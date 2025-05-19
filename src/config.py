@@ -57,8 +57,7 @@ def load_translations():
     translation = gettext.translation(
         domain="messages", localedir="src/locale", languages=[lang_code], fallback=True
     )
-    translation.install()
-    return translation.gettext
+    translation.install("gettext")
 
 
 def load_profile_image():

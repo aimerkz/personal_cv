@@ -1,10 +1,11 @@
 import re
+
+import streamlit as st
+
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from src.types import _
-
-import streamlit as st
 
 
 def validate_phone(phone: str) -> None:

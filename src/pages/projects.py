@@ -2,9 +2,10 @@ import streamlit as st
 
 from src.utils import display_projects
 
-import gettext
+from typing import TYPE_CHECKING
 
-_ = gettext.gettext
+if TYPE_CHECKING:
+    from src.types import _
 
 
 def project_page() -> None:

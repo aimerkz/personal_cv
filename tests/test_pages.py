@@ -2,10 +2,7 @@ import telebot
 import pytest
 
 from src.config import DESCRIPTION, load_profile_image
-from src.pages.about import about_page
-from src.pages.projects import project_page
-from src.pages.work_history import work_history_page
-from src.pages.contacts import contacts_page
+from src import pages
 
 from logic import assert_contacts_page
 
@@ -33,7 +30,7 @@ def test_pages_exist(app, page_path, expected_title):
 def test_about_page(
     mock_about_st, mock_about_page_attrs, mock_get_hard_skills, mock_display_ed
 ):
-    about_page()
+    pages.about.about_page()
     mock_about_st.columns.assert_called_once_with(
         2, gap="small", vertical_alignment="center"
     )
@@ -56,7 +53,7 @@ def test_about_page(
 def test_projects_page(
     mock_projects_st, mock_projects_page_attrs, mock_display_projects
 ):
-    project_page()
+    pages.projects.project_page()
     assert (
         mock_projects_st.title.return_value
         == mock_projects_page_attrs.title.return_value
@@ -67,7 +64,7 @@ def test_projects_page(
 def test_work_history_page(
     mock_work_history_st, mock_work_history_page_attrs, mock_display_work_history
 ):
-    work_history_page()
+    pages.work_history.work_history_page()
     assert (
         mock_work_history_st.title.return_value
         == mock_work_history_page_attrs.title.return_value
@@ -82,7 +79,7 @@ def test_contacts_page_without_send_message(
     mock_show_contact_form,
     mock_not_send_bot_message,
 ):
-    contacts_page()
+    pages.contacts.contacts_page()
 
     assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
 
@@ -99,7 +96,7 @@ def test_contacts_page_with_send_message(
     mock_send_bot_message,
 ):
     message = mock_contacts_st.session_state["message_data"]
-    contacts_page()
+    pages.contacts.contacts_page()
 
     assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
 
@@ -120,7 +117,7 @@ def test_contacts_page_with_error_send_message(
     mock_contacts_st.success = None
 
     with pytest.raises(telebot.apihelper.ApiException):
-        contacts_page()
+        pages.contacts.contacts_page()
 
     assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
 
@@ -139,7 +136,7 @@ def test_contacts_page_without_contact_form(
 ):
     mock_contacts_st.button.return_value = False
     mock_contacts_st.success = None
-    contacts_page()
+    pages.contacts.contacts_page()
 
     assert_contacts_page(mock_contacts_st, mock_contacts_page_attrs)
 
