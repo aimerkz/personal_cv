@@ -23,6 +23,18 @@
         "ru": "Сайт, который представляет собой мое резюме для потенциальных работодателей и всех заинтересованных."
       },
       "technologies": ["Python 3.12", "Streamlit"]
+    },
+    {
+      "name": {
+        "en": "Personal CV Alarm Clock",
+        "ru": "Будильник персонального сайта-резюме"
+      },
+      "link": "https://github.com/aimerkz/personalcv-alarm-clock",
+      "description": {
+        "en": "A Simple script to automatically open my resume site in the browser on a schedule via GitHub Actions.",
+        "ru": "Простой скрипт для автоматического открытия моего сайта-резюме в браузере по расписанию через GitHub Actions."
+      },
+      "technologies": ["Python 3.12", "Selenium", "Dishka"]
     }
   ]
 }
