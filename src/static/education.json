@@ -85,6 +85,15 @@
         "ru": "Программирование на Golang"
       },
       "link": "https://stepik.org/cert/2686843/"
+    },
+    {
+      "course": "Stepik",
+      "year": 2025,
+      "field": {
+        "en": "Asynchronous Python",
+        "ru": "Асинхронный Python"
+      },
+      "link": "https://stepik.org/cert/2827392/"
     }
   ]
 }
