@@ -12,6 +12,8 @@ gatherUsageStats = true
 address = "127.0.0.1"
 port = 8501
 runOnSave = true
+enableCORS = true
+enableXsrfProtection = true
 
 [logger]
 level = "INFO"
@@ -19,3 +21,5 @@ messageFormat = "%(asctime)s - %(levelname)s - %(message)s"
 
 [client]
 toolbarMode = "minimal"
+showErrorDetails = "stacktrace"
+showSidebarNavigation = true

@@ -15,7 +15,7 @@ class Page:
 
 
 class Navigation:
-    def __init__(self, pages: list[str, list[Page]] | None = None) -> None:
+    def __init__(self, pages: list[tuple[str, list[Page]]] | None = None) -> None:
         self.pages = [] if pages is None else pages.copy()
 
     def add_section(self, section_name: str, pages: list[Page]) -> None:
