@@ -1,13 +1,13 @@
+from typing import TYPE_CHECKING
+
 import streamlit as st
 
 from src.bot import tg_bot
 from src.forms.contact_form import contact_form
 from src.utils import get_contacts_info
 
-from typing import TYPE_CHECKING
-
 if TYPE_CHECKING:
-    from src.types import _
+    from src.types import translate as _
 
 
 @st.dialog(_("Contact Me"))

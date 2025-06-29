@@ -1,11 +1,10 @@
 import re
+from typing import TYPE_CHECKING
 
 import streamlit as st
 
-from typing import TYPE_CHECKING
-
 if TYPE_CHECKING:
-    from src.types import _
+    from src.types import translate as _
 
 
 def validate_phone(phone: str) -> None:
@@ -14,7 +13,7 @@ def validate_phone(phone: str) -> None:
         st.stop()
 
 
-def contact_form():
+def contact_form() -> None:
     with st.form("contact_form", clear_on_submit=False):
         name = st.text_input(_("First Name"))
         telegram_login = st.text_input(_("Telegram Login"))

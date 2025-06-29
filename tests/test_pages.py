@@ -1,10 +1,9 @@
-import telebot
 import pytest
-
-from src.config import load_profile_image
-from src import pages
-
+import telebot
 from logic import assert_contacts_page
+
+from src import pages
+from src.config import load_profile_image
 
 
 @pytest.mark.parametrize(
@@ -50,13 +49,10 @@ def test_about_page(
     mock_display_ed.assert_called_once()
 
 
-def test_projects_page(
-    mock_projects_st, mock_projects_page_attrs, mock_display_projects
-):
+def test_projects_page(mock_projects_st, mock_projects_page_attrs, mock_display_projects):
     pages.projects.project_page()
     assert (
-        mock_projects_st.title.return_value
-        == mock_projects_page_attrs.title.return_value
+        mock_projects_st.title.return_value == mock_projects_page_attrs.title.return_value
     )
     mock_display_projects.assert_called_once()
 

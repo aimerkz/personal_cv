@@ -1,11 +1,11 @@
+from typing import TYPE_CHECKING
+
 import streamlit as st
 
 from src.utils import display_work_history
 
-from typing import TYPE_CHECKING
-
 if TYPE_CHECKING:
-    from src.types import _
+    from src.types import translate as _
 
 
 def work_history_page() -> None:

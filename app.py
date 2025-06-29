@@ -1,12 +1,13 @@
-import streamlit as st
 import sys
-
-from src.config import CSS_DIR, load_css, init_locale, load_translations
-from src.navigation import Page, Navigation
 from typing import TYPE_CHECKING
 
+import streamlit as st
+
+from src.config import CSS_DIR, init_locale, load_css, load_translations
+from src.navigation import Navigation, Page
+
 if TYPE_CHECKING:
-    from src.types import _
+    from src.types import translate as _
 
 
 def main() -> None:
@@ -20,9 +21,7 @@ def main() -> None:
         path="src/pages/work_history.py", title=_("Work history"), icon="🧑‍💼"
     )
     contacts_page = Page(path="src/pages/contacts.py", title=_("Contacts"), icon="📒")
-    projects_page = Page(
-        path="src/pages/projects.py", title=_("My projects"), icon="🔨"
-    )
+    projects_page = Page(path="src/pages/projects.py", title=_("My projects"), icon="🔨")
 
     navigation = Navigation()
     navigation.add_section(_("Home"), [about_page])

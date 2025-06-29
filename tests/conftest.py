@@ -1,10 +1,10 @@
-from unittest.mock import MagicMock
+import gettext
 from typing import Any
+from unittest.mock import MagicMock
 
-from streamlit.testing.v1 import AppTest
 import pytest
 import telebot
-import gettext
+from streamlit.testing.v1 import AppTest
 
 from src.bot import TelegramBot
 
@@ -135,7 +135,7 @@ def mock_show_contact_form(mock_display_func_factory) -> MagicMock:
 def mock_attrs_factory():
     def _mock(target_mock: MagicMock, attrs: dict[str, Any]) -> MagicMock:
         for key, value in attrs.items():
-            target_mock.key.return_value = value
+            getattr(target_mock, key).return_value = value
         return target_mock
 
     return _mock

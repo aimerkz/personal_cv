@@ -1,8 +1,9 @@
-from pathlib import Path
 import gettext
+from pathlib import Path
+from typing import Final
 
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageFile
 
 # Dirs
 CURRENT_DIR = Path(__file__).parent
@@ -12,30 +13,30 @@ ED_DIR = CURRENT_DIR / "static" / "education.json"
 WORK_DIR = CURRENT_DIR / "static" / "work_history.json"
 PROJECTS_DIR = CURRENT_DIR / "static" / "projects.json"
 
-PAGE_ICON = ":coffee:"
-EMAIL = "artem-merk96@yandex.ru"
+PAGE_ICON: str = ":coffee:"
+EMAIL: str = "artem-merk96@yandex.ru"
 
-SOCIAL_MEDIA = {
+SOCIAL_MEDIA: Final[dict[str, str]] = {
     "GitHub": "https://github.com/aimerkz",
     "LinkedIn": "https://www.linkedin.com/in/artem-merkulov-0133b328b/",
     "HabrCareer": "https://career.habr.com/artyommerkulov",
 }
 
-SOCIAL_MEDIA_ICONS = {
+SOCIAL_MEDIA_ICONS: Final[dict[str, str]] = {
     "LinkedIn": "💼",
     "GitHub": "💻",
     "HabrCareer": "💺",
 }
 
-TELEGRAM_LINK = "https://t.me/aimerkulov96"
+TELEGRAM_LINK: str = "https://t.me/aimerkulov96"
 
-LANGUAGES = {
+LANGUAGES: Final[dict[str, str]] = {
     "English": "en",
     "Русский": "ru",
 }
 
 
-def init_locale():
+def init_locale() -> None:
     if "lang_code" not in st.session_state:
         st.session_state.lang_code = "en"
 
@@ -50,7 +51,7 @@ def init_locale():
         st.rerun()
 
 
-def load_translations():
+def load_translations() -> None:
     lang_code = st.session_state.get("lang_code", "en")
 
     translation = gettext.translation(
@@ -59,7 +60,7 @@ def load_translations():
     translation.install("gettext")
 
 
-def load_profile_image():
+def load_profile_image() -> ImageFile:
     try:
         with Image.open(PROFILE_IMAGE) as img:
             img.verify()
@@ -73,7 +74,7 @@ def load_profile_image():
 
 
 @st.cache_data(max_entries=1, show_spinner=False)
-def load_css(css_path):
+def load_css(css_path) -> None:
     try:
         with open(css_path, mode="r") as css_file:
             css_text = css_file.read()
