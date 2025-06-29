@@ -1,7 +1,7 @@
+from typing import TYPE_CHECKING
+
 import streamlit as st
 import telebot
-
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from src.types import _

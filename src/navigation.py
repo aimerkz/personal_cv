@@ -9,9 +9,7 @@ class Page:
         self.default = default
 
     def create(self) -> st.Page:
-        return st.Page(
-            self.path, title=self.title, icon=self.icon, default=self.default
-        )
+        return st.Page(self.path, title=self.title, icon=self.icon, default=self.default)
 
 
 class Navigation:

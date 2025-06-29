@@ -1,5 +1,6 @@
 import json
 from io import BytesIO
+from typing import TYPE_CHECKING, Any
 
 import qrcode
 import streamlit as st
@@ -14,13 +15,11 @@ from src.config import (
     WORK_DIR,
 )
 
-from typing import TYPE_CHECKING
-
 if TYPE_CHECKING:
-    from src.types import _
+    from src.types import translate as _
 
 
-def get_hard_skills():
+def get_hard_skills() -> None:
     st.subheader(_("Hard Skills"))
 
     skills_data = [
@@ -95,17 +94,13 @@ def get_hard_skills():
     st.write(result)
 
 
-@st.cache_data(
-    max_entries=2,
-    show_spinner=False,
-    hash_funcs={"_": lambda _: st.session_state.get("lang_code", "en")},
-)
-def load_data(file_dir: str):
+@st.cache_data(show_spinner=False)
+def load_data(file_dir: str) -> Any:
     with open(file_dir, "r", encoding="utf-8") as file:
         return json.load(file)
 
 
-def display_ed():
+def display_ed() -> None:
     data = load_data(ED_DIR)
     st.header(_("Education"))
     current_lang = st.session_state.get("lang_code", "en")
@@ -123,7 +118,7 @@ def display_ed():
         )
 
 
-def display_work_history():
+def display_work_history() -> None:
     data = load_data(WORK_DIR)
     current_lang = st.session_state.get("lang_code", "en")
 
@@ -138,7 +133,7 @@ def display_work_history():
             st.write(f" - ► {responsibility}")
 
 
-def display_projects():
+def display_projects() -> None:
     data = load_data(PROJECTS_DIR)
     current_lang = st.session_state.get("lang_code", "en")
 
@@ -150,7 +145,7 @@ def display_projects():
             st.write(f" - ► {technology}")
 
 
-def get_qr_code():
+def get_qr_code() -> None:
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -174,7 +169,7 @@ def get_qr_code():
 def _get_social_media_links() -> None:
     cols = st.columns(len(SOCIAL_MEDIA))
 
-    for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
+    for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items(), strict=False):
         with col:
             st.link_button(
                 label=f"{SOCIAL_MEDIA_ICONS[platform]} {platform}",

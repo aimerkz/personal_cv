@@ -1,11 +1,12 @@
+from typing import TYPE_CHECKING
+
 import streamlit as st
 
 from src.config import load_profile_image
 from src.utils import display_ed, get_hard_skills
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.types import _
+    from src.types import translate as _
 
 
 def about_page() -> None:

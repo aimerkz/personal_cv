@@ -1,4 +1,4 @@
-from typing import Callable
 import gettext
+from typing import Callable
 
-_: Callable[[str], str] = gettext.gettext
+translate: Callable[[str], str] = gettext.gettext
