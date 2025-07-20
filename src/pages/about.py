@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 
 import streamlit as st
 
-from src.config import load_profile_image
+from src.config import PROFILE_IMAGE
 from src.utils import display_ed, get_hard_skills
 
 if TYPE_CHECKING:
@@ -12,8 +12,7 @@ if TYPE_CHECKING:
 def about_page() -> None:
     col1, col2 = st.columns(2, gap="small", vertical_alignment="center")
     with col1:
-        profile_image = load_profile_image()
-        st.image(profile_image, use_container_width=True, width=300)
+        st.image(PROFILE_IMAGE)
 
     with col2:
         st.title(_("Artem Merkulov"), anchor=False)

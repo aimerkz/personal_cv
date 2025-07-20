@@ -3,7 +3,7 @@ import telebot
 from logic import assert_contacts_page
 
 from src import pages
-from src.config import load_profile_image
+from src.config import PROFILE_IMAGE
 
 
 @pytest.mark.parametrize(
@@ -35,9 +35,7 @@ def test_about_page(
     )
 
     with mock_about_st.columns[0]:
-        mock_about_st.image.assert_called_once_with(
-            load_profile_image(), use_container_width=True, width=300
-        )
+        mock_about_st.image.assert_called_once_with(PROFILE_IMAGE)
 
         mock_about_st.title.assert_called_once_with("Artem Merkulov", anchor=False)
         assert mock_about_st.write.call_count == 2
