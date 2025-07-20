@@ -3,12 +3,11 @@ from pathlib import Path
 from typing import Final
 
 import streamlit as st
-from PIL import Image, ImageFile
 
 # Dirs
 CURRENT_DIR = Path(__file__).parent
 CSS_DIR = CURRENT_DIR / "styles" / "main.css"
-PROFILE_IMAGE = CURRENT_DIR / "static" / "profile.png"
+PROFILE_IMAGE = CURRENT_DIR / "static" / "profile.jpg"
 ED_DIR = CURRENT_DIR / "static" / "education.json"
 WORK_DIR = CURRENT_DIR / "static" / "work_history.json"
 PROJECTS_DIR = CURRENT_DIR / "static" / "projects.json"
@@ -58,19 +57,6 @@ def load_translations() -> None:
         domain="messages", localedir="src/locale", languages=[lang_code], fallback=True
     )
     translation.install("gettext")
-
-
-def load_profile_image() -> ImageFile:
-    try:
-        with Image.open(PROFILE_IMAGE) as img:
-            img.verify()
-    except FileNotFoundError:
-        st.error("Image not found")
-        raise
-    except OSError:
-        st.error("Some problem with image")
-        raise
-    return Image.open(PROFILE_IMAGE)
 
 
 @st.cache_data(max_entries=1, show_spinner=False)
